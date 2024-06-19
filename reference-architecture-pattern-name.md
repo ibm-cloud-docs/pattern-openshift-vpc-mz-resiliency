@@ -4,7 +4,7 @@ copyright:
   years: 2024
 lastupdated: "2024-01-23"
 
-subcollection: <repo-name>
+subcollection: pattern-openshift-vpc-mz-resiliency
 
 keywords:
 
