@@ -58,13 +58,13 @@ content-type: reference-architecture
 {: #architecture-diagram}
 
 
-## 4.1 Solution Architecture Diagram
+## Solution Architecture Diagram
 
 ![](image/Architectureoverview.svg)
 
 [Multi-Zone Resiliency for ROKS Solution Architecture]
 
-## 4.2 Solution Components
+## Solution Components
 
 | Category              | Solution Components                                                                                                                   | How it is used in solution                                                                                                            |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
@@ -120,33 +120,32 @@ The Architecture Framework, described in [Introduction to the Architecture Frame
 
 
 
-The following represents a baseline set of requirements which we believe are applicable to most clients and critical to successful SAP deployment.
 
-| Aspect | Requirement |
-|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Network| Enterprise connectivity to customer data center(s) to provide access to applications from on-prem|
-| | Map and convert existing customer SAP Network functionality into IBM Cloud and VPC networking services|
-| | Migrate/Redeploy customer IP addressing scheme within the IBM Cloud environment |
-| | Provide network isolation with the ability to segregate applications based on attributes such as data classification, public vs internal apps and function  |
-| Security | Provide data encryption in transit and at rest|
-| | Migrate customer IDS/IAM Services to target IBM Cloud environment |
-| | Retain the same firewall rulesets across existing DCs |
-| | Firewalls must be restrictively configured to provide advanced security features and prevent all traffic, both inbound and outbound, except that which is specifically required, documented, and approved, and include IPS/IDS services |
-| Resiliency | Multi-site capability to support a disaster recovery strategy and solution leveraging IBM Cloud infrastructure DR capabilities|
-| | Provide backups for data retention|
-| | RTO/RPO = 4 hours/15 minutes; Rollback to original environments should occur no later than specified RTOs |
-| | 99.95 Availability|
-| | Backups |
-| | Prod: Daily Full, logs per SAP product standard, 30 days retention time \n Non-Prod: Weekly full, logs per SAP product standard, 14 days retention time|
-| Service management | Provide Health and System Monitoring with ability to monitor and correlate performance metrics and events and provide alerting across applications and infrastructure |
-| | Ability to diagnose issues and exceptions and identify error sources|
-| | Automate management processes to keep applications and infrastructure secure, up to date, and available |
-| Other| Migrate SAP workloads from existing data center to IBM Cloud VPC |
-| | Customer's SAP systems and applications run on NetWeaver (application) & HANA (DB), AnyDB or S/4 HANA |
-| | Provide an Image Replication migration solution that will minimize disruption during cut-over|
-| | Cloud infrastructure for the proposed IAAS solution must be SAP Certified |
-| | IBM Cloud IaaS will be deployed to support SAP and surrounding non-SAP workloads |
-| | Customer does not want to adopt [RISE](https://www.ibm.com/consulting/rise-with-sap?utm_content=SRCWW&p1=Search&p4=43700077624079785&p5=e&gclid=EAIaIQobChMIr9bRlt7LgQMVJdHCBB0cewwcEAAYASAAEgIVgfD_BwE&gclsrc=aw.ds) at this time but wants to consider Cloud deployment solution that would facilitate a future RISE transformation|
+|The following represents a typical set of requirements for enterprise-ready ROKS deployed in a public cloud.
+
+| **Aspect**         | **Requirements**                                                                                                                                             |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Compute            | Provide platform for containerized applications and management tools with adequate compute capacity                                                          |
+| Storage            | Provide storage that meets the stateful applications and database requirements.                                                                              |
+| Networking         | Deploy workloads in isolated environment and enforce information flow policies.                                                                              |
+|                    |                                                                                                                                                              |
+|                    | Distribute incoming application requests across available compute resources.                                                                                 |
+|                    |                                                                                                                                                              |
+| Security           | Ensure all operation actions are executed securely.                                                                                                          |
+|                    |                                                                                                                                                              |
+|                    | Ensure data encryption at rest and in transit for the storage layer.                                                                                         |
+|                    | Encrypt all backup data to protect from unauthorized disclosure.                                                                                             |
+|                    | Encrypt all security data (operational and audit logs) to protect from unauthorized disclosure.                                                              |
+|                    | Encrypt all data using customer managed keys to meet regulatory compliance requirements for additional security and customer control.                        |
+|                    |                                                                                                                                                              |
+| Resiliency         | Provide containerized platform that supports application availability targets and business continuity policies.                                              |
+|                    | Provide highly available compute, storage, network, and other cloud services for a resilient containerized application with persistent storage requirements. |
+|                    | Provide backup solution for containers platform and application data to enable recovery in the event of unplanned outages.                                   |
+|                    | Provide highly available storage for containerized databases and stateful applications.                                                                      |
+| Service Management | Monitor system health metrics and logs to detect issues that might impact the availability of the platform.                                                  |
+|                    | Generate alerts/notifications about issues that might impact the availability of platform to trigger appropriate responses to minimize down time.            |
+|                    | Monitor audit logs to track changes and detect potential security problems.                                                                                  |
+|                    | Provide a mechanism to identify and send notifications about issues found in audit logs.
  {: caption="Table 1. Pattern requirements" caption-side="bottom"}
 
 ## Components 
