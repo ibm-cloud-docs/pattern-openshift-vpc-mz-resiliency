@@ -58,17 +58,7 @@ Following the [Architecture Framework](https://cloud.ibm.com/docs/architecture-f
 -   **Resiliency:** High Availability, Backup and Restore
 -   **Service Management:** Monitoring, Logging, Auditing, Alerting
 
-| Aspects            | Domains                 |                              |                            |                             |                             |                               |                           |
-|--------------------|-------------------------|------------------------------|----------------------------|-----------------------------|-----------------------------|-------------------------------|---------------------------|
-| Compute            | Bare Metal Servers      | Virtual Servers              | Virtualization             | Containers                  | Serverless                  |                               |                           |
-| Storage            | Primary Storage         | Backup                       | Archive                    | Data  Migration             | SDS                         |                               |                           |
-| Networking         | Enterprise Connectivity | BYOIP/Edge Gateways          | Segmentation and Isolation | Cloud Native Connectivity   | Load Balancing              | CDN                           | DNS                       |
-| Security           | Data Security           | Identity & Access Management | Application Security       | Infrastructure and Endpoint | Threat Detection & Response | Governance, Risk & Compliance |                           |
-| Resiliency         | High Availability       | Disaster Recovery            | Backup and Restore         |                             |                             |                               |                           |
-| Service Management | Monitoring              | Logging                      | Auditing                   | Alerting                    | Event Management            | Automated Deployment          | Management/ Orchestration |
-| Data               | Application Integration | Data Ops                     | Data Analytics             | Data Storage                | Business Intelligence       | Artificial Intelligence       |                           |
-
-Domains covered in this document.
+![](image/heat-map.svg)
 
 [Multi-Zone Resiliency for ROKS Solution Design Scope]
 
