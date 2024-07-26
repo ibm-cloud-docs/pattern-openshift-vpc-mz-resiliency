@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-07-23"
+lastupdated: "2024-07-26"
 
 subcollection: pattern-openshift-vpc-mz-resiliency
 
@@ -39,7 +39,7 @@ Multi-zone clusters, also known as stretched clusters, provide protection from z
 
 Multi-zone clusters are recommended for business-critical applications.
 
-**Application availability**
+## Application availability
 
 The availability of a containerized application depends on the availability of the pods where the application is deployed and the application’s scalability and ability to handle workload changes. For stateful applications, persistent storage data availability and consistency are also important considerations.
 
