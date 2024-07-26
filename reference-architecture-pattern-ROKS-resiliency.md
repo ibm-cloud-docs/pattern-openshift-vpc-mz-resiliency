@@ -34,10 +34,7 @@ content-type: reference-architecture
 {: toc-content-type="reference-architecture"}
 {: toc-version="1.0"}
 
-
-
-
-# 4. Solution Architecture
+# Solution Architecture
 
 -   ROKS is deployed on VPC Servers across three availability zones within a region.
 -   Compatible/recommended nodes (that are currently available for ROKS on IBM Cloud – Virtual Servers Instances Shared) are used for worker nodes to run stateful application in production environment.   

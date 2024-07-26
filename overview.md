@@ -27,7 +27,7 @@ This pattern is intended to:
 
 
 
-# 1. Pattern Objectives
+##  Pattern Objectives
 
 The objective of this pattern is to provide a resilient solution design for Red Hat OpenShift Kubernetes Service (ROKS) on a Virtual Private Cloud (VPC) architecture deployment, on IBM Cloud, that meets high availability requirements for enterprise workloads that require persistent storage. This pattern is intended to:
 
@@ -37,7 +37,7 @@ The objective of this pattern is to provide a resilient solution design for Red 
 
 This document focuses on leveraging cloud platform capabilities to architect resilient ROKS on VPC. The pattern provides high availability and backup architecture within a single region for ROKS on VPC.
 
-# 2. Pattern Overview
+##  Pattern Overview
 
 The Multi-Zone Resiliency Pattern for ROKS deploys containerized enterprise workloads that require persistent storage on VPC, using compute, storage, and network cloud resources as well as other Cloud Services provisioned across multiple availability zones within a single region .
 
