@@ -118,13 +118,6 @@ Following the [Architecture Framework](/docs/architecture-framework?topic=archit
 
 The Architecture Framework, described in [Introduction to the Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro), provides a consistent approach to design cloud solutions by addressing requirements across a pre-defined set of aspects and domains, which are technology-agnostic architectural areas that need to be considered for any enterprise solution. It can be used as a guide to make the necessary design and component choices to ensure you have considered applicable requirements for each aspect and domain. After you have identified the applicable requirements and domains that are in scope, you can evaluate and select the best fit for purpose components for your enterprise cloud solution.
 
-The Figure 3 shows the domains that are covered in this solution.
-
-
-![A diagram of a computer network Description automatically
-generated](./image3.svg)
-
-Figure 3 design scope
 
 ## Requirements 
 {: #requirements}
@@ -159,7 +152,7 @@ The following represents a baseline set of requirements which we believe are app
 | | IBM Cloud IaaS will be deployed to support SAP and surrounding non-SAP workloads |
 | | Customer does not want to adopt [RISE](https://www.ibm.com/consulting/rise-with-sap?utm_content=SRCWW&p1=Search&p4=43700077624079785&p5=e&gclid=EAIaIQobChMIr9bRlt7LgQMVJdHCBB0cewwcEAAYASAAEgIVgfD_BwE&gclsrc=aw.ds) at this time but wants to consider Cloud deployment solution that would facilitate a future RISE transformation|
  {: caption="Table 1. Pattern requirements" caption-side="bottom"}
- 
+
 ## Components 
 {: #components}
 
