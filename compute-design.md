@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-23"
+lastupdated: "2024-07-26"
 
 subcollection: pattern-openshift-vpc-mz-resiliency
 
@@ -14,9 +14,6 @@ keywords:
 
 # Compute design 
 {: #compute-design}
-
-
-# 5. Compute Design Considerations
 
 The Multi-zone Resiliency pattern for ROKS includes compute options that are highly available, properly isolated, provide the defined capacity for the applications, and can handle increased workload demands.
 
