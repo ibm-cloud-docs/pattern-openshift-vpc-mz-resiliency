@@ -2,9 +2,9 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-23"
+lastupdated: "2024-07-23"
 
-subcollection: <repo-name>
+subcollection: pattern-openshift-vpc-mz-resiliency
 
 keywords:
 
@@ -16,12 +16,14 @@ keywords:
 # References
 {: #references}
 
-[IBM Cloud Virtual Private Cloud (VPC) Infrastructure environment introduction](/docs/sap?topic=sap-vpc-env-introduction)
+[Cluster Autoscaler](https://cloud.ibm.com/docs/openshift?topic=openshift-cluster-scaling-classic-vpc&interface=ui)
 
-[IBM Cloud for SAP Get Started](/docs/sap?topic=sap-get-started)
+[ALB multi-zone configuration](https://cloud.ibm.com/docs/vpc?topic=vpc-load-balancers-about&interface=api#horizontal-scaling)
 
-[Veeam Plug-ins for Enterprise Applications](https://helpcenter.veeam.com/docs/backup/plugins/overview.html?ver=120)
+[IBM Cloud SLA](https://www.ibm.com/support/customer/csol/terms/?id=i126-9268&lc=en#detail-document)
 
-[Sizing process for SAP Systems](/docs/sap?topic=sap-sizing&interface=ui)
+[Portworx Enterprise](https://cloud.ibm.com/docs/openshift?topic=openshift-storage_portworx_plan)
 
-[FAQ -- SAP on IBM Cloud](/docs/sap?topic=sap-faq-ibm-cloud-for-sap)
+[Portworx Backup](https://cloud.ibm.com/docs/openshift?topic=openshift-storage_portworx_backup\#px-backup-and-restore)
+
+[IBM Cloud Regions & Zones](https://www.ibm.com/docs/en/cloud-orchestrator/2.5.0.9?topic=security-regions-availability-zones-quota)

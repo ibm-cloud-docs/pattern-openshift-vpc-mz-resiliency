@@ -2,9 +2,9 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-23"
+lastupdated: "2024-07-23"
 
-subcollection: <repo-name>
+subcollection: pattern-openshift-vpc-mz-resiliency
 
 keywords:
 
@@ -17,81 +17,17 @@ keywords:
 
 
 
-The following tables summarize the networking architecture decisions for the web app multi-zone resiliency pattern.
+The following tables summarize the networking architecture decisions for the Red Hat OpenShift service on IBM Cloud multi-zone resiliency pattern.
 
-## Architecture decisions for enterprise connectivity
-{: #enterprise-connectivity}
+## 
 
-The following are architecture decisions for enterprise connectivity for this design.
-
-| Architecture decision | Requirement | Option | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-| Management connectivity | Provide secure, encrypted connectivity to the cloud’s private network for management purposes. | text | text | text. |
-| Enterprise connectivity | Provide connectivity between client enterprise and IBM Cloud. | text | text | text. |
-{: caption="Table 1. Architecture decisions for enterprise connectivity" caption-side="bottom"}
-
-## Architecture decisions for BYOIP and Edge Gateways
-{: #byoip-edge-gateways}
-
-The following are network BYOIP and edge gateay architecture decisions for this design.
-
-| Architecture decision | Requirement | Option | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-| BYOIP approach | Provide capability for bring your own IP (BYOIP) to IBM Cloud. | text | text | text |
-| Edge gateways | Capability to provide edge routing services and possible tunnel termination. | text | text | text |
-{: caption="Table 2. Architecture decisions for bring your own IP and edge gateways" caption-side="bottom"}
-
-## Architecture decisions for network segmentation and isolation
-{: #network-segmentation-isolation}
-
-The following are network segmentation and isolation architecture decisions for this design.
-
-| Architecture decision | Requirement | Option | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-| Network segmentation and isolation | Ability to provide network isolation across workloads. | text | text | text |
-{: caption="Table 3. Architecture decisions for network segmentation and isolation" caption-side="bottom"}
-
-## Architecture decisions for cloud native connectivity
-{: #cloud-native-connectivity}
-
-The following are cloud native connectivity architecture decisions for this design.
-
-| Architecture decision | Requirement | Option | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-| Cloud native connectivity (to cloud services) | Provide secure connection to Cloud Services | * VPC Gateway + Virtual Private Endpoints (VPE) \n * Private Cloud Service endpoints \n * Public Cloud Service Endpoints | text | text |
-| Multi-landing zone connectivity | Connect two or more VPCs over a private network /n Connectectivity between classic, VPCs and/or Power Virutal Server| * Global Transit Gateway \n * Local Transit Gateway (TGW) | text | text |
-{: caption="Table 4. Architecture decisions for cloud native connectivity" caption-side="bottom"}
-
-## Architecture decisions for load balancing
-{: #network-load-balancing}
-
-The following are load balancing architecture decisions for this design.
-
-| Architecture decision | Requirement | Option | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-| Global load balancing | Load balancing over the public network across two regions in the event of an outage (DR) for failover to the other region. | text | text |text|
-| Load balancing (public) | Load balancing workloads across multiple workload instances or zones over the public network. | text | text |text|
-| Load balancing (private) | Load balancing workloads across multiple workload instances or zones over the private network. | text | text |text|
-{: caption="Table 5. Architecture decisions for load balancing" caption-side="bottom"}
-
-## Architecture decisions for content delivery network
-{: #network-content delivery network}
-
-The following are content delivery network architecture decisions for this design.
-
-| Architecture decision | Requirement | Option | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-| Content delivery network | Provide ability to cache frequently accessed content at location nearest to the user | text | text | text |
-{: caption="Table 6. Architecture decisions for content delivery network" caption-side="bottom"}
-
-
-## Architecture decisions for domain name system
-{: #dns}
-
-The following are domain name system (DNS) architecture decisions for this design.
-
-| Architecture decision | Requirement | Option | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-| Public DNS | Provide DNS resolution to support the use of hostnames instead of IP addresses for applications | text | text | text |
-| Private DNS | Provide DNS resolution within IBM Cloud's private network | text| text | text |
-{: caption="Table 7. Architecture decisions for domain name system" caption-side="bottom"}
+| **\#**                                    | **AD**                         | **Requirement**                                                                                                                       | **Alternative**                                                                                      | **Decision**                                   | **Rationale**                                                                                                                                                                                                                                                                |
+|-------------------------------------------|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **1. Network Segmentation and Isolation** |                                |                                                                                                                                       |                                                                                                      |                                                |                                                                                                                                                                                                                                                                              |
+| 1.1                                       | App Deployment                 | - Deploy workloads in isolated environment and enforce information flow policies.\ - Provide isolated security zones between app tiers | - Virtual Private Clouds (VPCs)\ - Subnets\ - Security Groups (SGs)\ - ACLs                             | VPCs, subnets, Security Groups (SGs) and ACLs  | VPCs provide secure, virtual networks for apps which are logically isolated from other public cloud tenants. Subnets provide a range of private IP addresses for each app within a zone. Security Groups and ACLs are used as firewalls to limit access to servers and apps. |
+| **2. Cloud Native Connectivity**          |                                |                                                                                                                                       |                                                                                                      |                                                |                                                                                                                                                                                                                                                                              |
+| 2.1                                       | Connectivity to Cloud Services | - Provide secure connection to Cloud Services                                                                                         | - Virtual Private Endpoints (VPE)\ - Private Cloud Service endpoints\ - Public Cloud Service Endpoints | Virtual Private Endpoints (VPE)                | Virtual Private Endpoints enable connectivity to IBM Cloud services using private IP addresses allocated from a VPC subnet.                                                                                                                                                  |
+| 2.2                                       | VPC to VPC Connectivity        | - Connect two or more VPCs over private network                                                                                       | - Local Transit Gateway\ - Global Transit Gateway                                                     | Local Transit Gateway (TGW)                    | The Local Transit Gateway enables connectivity between the Management and Workload VPCs. The Management VPC has Portworx Backup cluster.                                                                                                                                     |
+| **3. Load Balancing**                     |                                |                                                                                                                                       |                                                                                                      |                                                |                                                                                                                                                                                                                                                                              |
+| 3.1                                       | Cluster Load Balancer          | Distribute compute across zones for high availability.                                                                                | - VPC ALB\ - VPC NLB                                                                                  | VPC ALB                                        | The VPC ALB distributes traffic among worker nodes across zones and it is automatically provisioned when a multi-zone OpenShift cluster is created.                                                                                                                          |
+{: caption="Table 7. Architecture decisions for networking" caption-side="bottom"}

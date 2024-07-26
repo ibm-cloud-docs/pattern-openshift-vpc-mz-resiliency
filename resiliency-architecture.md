@@ -2,9 +2,9 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-23"
+lastupdated: "2024-07-23"
 
-subcollection: <repo-name>
+subcollection: pattern-openshift-vpc-mz-resiliency
 
 keywords:
 
@@ -13,35 +13,16 @@ keywords:
 # Architecture decisions for resiliency
 {: #resiliency-architecture}
 
-The following sections summarize the resiliency architecture decisions for workloads deployed on IBM Cloud VPC infrastructure.
+The following sections summarize the resiliency architecture decisions for Red Hat OpenShift deployed on IBM Cloud VPC infrastructure.
 
-## Architecture decisions for high availability
-{: #high-availability}
 
-| Architecture decision | Requirement | Option | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-| High availability deployment | * Ensure availability of resources if outages occur. \n * Support SLA targets for availability. | - Single zone, single region \n - Multi zone, single region \n - Multi-zone, multi region | text | text|
-| High availability infrastructure | * Ensure availability of infrastructure resources if outages occur. \n * Support SLA targets for infrastructure availability. | text | text | text|
-| High availability application and database | * Ensure availability of application resources if outages occur. \n * Support SLA targets for application availability. | text | text | text|
-{: caption="Table 1. High availability architecture decisions" caption-side="bottom"}
-
-## Architecture decisions for backup and restore
-{: #backup-and-restore}
-
-| Architecture decision | Requirement | Option | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-| Infrastructure backup  | Backup images to enable recovery. | text | text | text |
-| Database backup | Create transaction-consistent database backups to enable recovery of database tier if unplanned outages occur. |text | text | text |
-| File backup | Create file system backups |text | text | text |
-| Backup automation | Schedule regular database backups based on RPO requirements to enable data recovery if unplanned outages occur. |text | text | text |
-{: caption="Table 2. Backup and restore architecture decisions" caption-side="bottom"}
-
-## Architecture decisions for disaster recovery
-{: #disaster recovery}
-
-| Architecture decision | Requirement | Option | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-| Disaster recovery - application | Application disaster recovery capability in secondary region to meet RTO/RPO requirements| text | text | text |
-| Disaster recovery - database                        | Database recovery capability in secondary region | text | Continuous replication of data from a primary to a secondary system in a separate region, including in-memory loading, system replication facilitates rapid failover in the event of a disaster|
-| Disaster recovery - infrastructure | Infrastructure disaster recovery capability in secondary region to meet RTO/RPO requirements| text | text | text |
-{: caption="Table 2. Disaster recovery architecture decisions" caption-side="bottom"}
+| **\#**                     | **AD**                                                     | **Requirement**                                                                                                                       | **Alternative**                                                                              | **Decision**                         | **Rationale**                                                                                                                                                                                                                                                                                                                                                                    |
+|----------------------------|------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **1. High Availability**   |                                                            |                                                                                                                                       |                                                                                              |                                      |                                                                                                                                                                                                                                                                                                                                                                                  |
+|  1.1                       | Workload and Portworx cluster High Availability Deployment | - Ensure availability of resources in the event of outages.\ - Support SLA targets for application availability.\                       | - Single zone, single region\ - Multi zone, single region\ - Multi-zone, multi region\          | Multi-zone, single region            | **Recommended deployment for Multi-Zone Resiliency Pattern** - Provides protection from zone outage - Supports 99.99% availability for the infrastructure   Recommended approach for: - Core business applications - Enterprise level workloads with stringent resiliency requirements  - Business continuity policies with country boundaries or geo data residence constraints |
+| 1.2                        | Portworx Backup cluster                                    | Ensure availability of backup solution in case of workload cluster failures                                                           | -Separate cluster for Portworx Backup\ -Use workload cluster\                                  | Separate cluster for Portworx Backup | Best Practice is to use a separate cluster for Portworx Backup since if the backup solution is installed on workload cluster and in the case the workload cluster goes down so does the backup solution.                                                                                                                                                                         |
+| 1.3                        | Portworx Backup cluster High Availability Deployment       | - Ensure availability of Portworx Backup service in the event of outages.                                                             | - Single zone, single region\ - Multi zone, single region\                                     | Multi-zone, single region            | Provides protection from zone outage                                                                                                                                                                                                                                                                                                                                             |
+| **2. Backup and Restore**  |                                                            |                                                                                                                                       |                                                                                              |                                      |                                                                                                                                                                                                                                                                                                                                                                                  |
+| 2.1                        | Backup Type                                                | Backup and Restore at the application level                                                                                           | -Application backup\ -VMs backup\ -Nodes backup\ -Other                                         | Application backup                   | Kubernetes consistent backup of applications allows for fast and efficient recovery of applications in the cluster.                                                                                                                                                                                                                                                              |
+| 2.2                        | Application backup                                         | - Backup applications to enable recovery of applications in the event of unplanned outages                                            | - Portworx Backup\ - Kasten\ - Trilio for OpenShift\ - Others (Velero, KubeDR, Zerto for K8s)   | Portworx Backup                      | Portworx not only support Kubernetes backup and restore, but also DR and local HA. Provides Kubernetes consistent backup of applications across multi-pod in a namespace using STORK (STorage Orchestrator Runtime for Kubernetes).                                                                                                                                              |
+| 2.3                        | Backup Automation                                          | - Schedule regular applications backups based on backup policy requirements to enable data recovery in the event of unplanned outages | - Portworx Backup\ - Kasten\ - Trilio for OpenShift\ - Others (Velero, KubeDR, Zerto for K8s)   | Portworx Backup                      | Portworx Backup allows defining backup policies to manage the creation and deletion of backup and provides UI in Portworx Central that has RBAC capabilities.                                                                                                                                                                                                                    |
