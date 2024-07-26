@@ -41,9 +41,9 @@ content-type: reference-architecture
 
 -   ROKS is deployed on VPC Servers across three availability zones within a region.
 -   Compatible/recommended nodes (that are currently available for ROKS on IBM Cloud – Virtual Servers Instances Shared) are used for worker nodes to run stateful application in production environment.   
-    ![](image/545eb7ba85b9774f5a5a2b170ea6242a.png)Ref: IBM Cloud Docs
+    ![](image/ROKScluster.svg)Ref: IBM Cloud Docs
 -   High performance Secondary storage (10 IOPS Block) is used and attached to worker nodes. Portworx Enterprise (an SDS – Software Defined Storage) is setup in the cluster across three zones using a Converged architecture (compute and storage in same node). Built-in internal key-value database (KVDB) is used for Portworx cluster.
--   ![Portworx deployment architecture hyperconverged](image/0c1947f67fce0cfed4a32e2fb6107f7d.png)Ref: Portworx Docs
+-   ![Portworx deployment architecture hyperconverged](image/Cluster.svg)Ref: Portworx Docs
 -   Any databases that may be required for the stateful applications use the Portworx SDS.
 -   In the ROKS multizone cluster, the worker nodes in the worker pools are distributed across multiple zones within one region. ROKS multizone clusters are designed to *evenly* schedule pods across worker nodes and zones to ensure availability and recovery from failure. If worker nodes are not spread *evenly* across the zones or capacity is insufficient in one of the zones, the ROKS controller might fail to schedule all requested pods.
 -   Application Load Balancer (ALB) for VPC with multi-zone support is used to route traffic to the containerized application.
@@ -64,7 +64,7 @@ content-type: reference-architecture
 
 ## 4.1 Solution Architecture Diagram
 
-![](image/30d2ddd09c25b8b2bb1dbc65da9c7602.png)
+![](image/Architectureoverview.svg)
 
 [Multi-Zone Resiliency for ROKS Solution Architecture]
 
