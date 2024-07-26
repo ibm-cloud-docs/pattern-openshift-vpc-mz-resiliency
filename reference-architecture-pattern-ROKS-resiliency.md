@@ -148,7 +148,7 @@ The following represents a baseline set of requirements which we believe are app
 | | RTO/RPO = 4 hours/15 minutes; Rollback to original environments should occur no later than specified RTOs |
 | | 99.95 Availability|
 | | Backups |
-| | - Prod: Daily Full, logs per SAP product standard, 30 days retention time \n - Non-Prod: Weekly full, logs per SAP product standard, 14 days retention time|
+| | Prod: Daily Full, logs per SAP product standard, 30 days retention time \n Non-Prod: Weekly full, logs per SAP product standard, 14 days retention time|
 | Service management | Provide Health and System Monitoring with ability to monitor and correlate performance metrics and events and provide alerting across applications and infrastructure |
 | | Ability to diagnose issues and exceptions and identify error sources|
 | | Automate management processes to keep applications and infrastructure secure, up to date, and available |
@@ -158,8 +158,8 @@ The following represents a baseline set of requirements which we believe are app
 | | Cloud infrastructure for the proposed IAAS solution must be SAP Certified |
 | | IBM Cloud IaaS will be deployed to support SAP and surrounding non-SAP workloads |
 | | Customer does not want to adopt [RISE](https://www.ibm.com/consulting/rise-with-sap?utm_content=SRCWW&p1=Search&p4=43700077624079785&p5=e&gclid=EAIaIQobChMIr9bRlt7LgQMVJdHCBB0cewwcEAAYASAAEgIVgfD_BwE&gclsrc=aw.ds) at this time but wants to consider Cloud deployment solution that would facilitate a future RISE transformation|
-{: caption="Table 1. Pattern requirements" caption-side="bottom"}  <!-- each table MUST have a caption attribute>
-
+ {: caption="Table 1. Pattern requirements" caption-side="bottom"}
+ 
 ## Components 
 {: #components}
 
