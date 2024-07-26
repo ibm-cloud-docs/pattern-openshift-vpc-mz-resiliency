@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-07-24"
+lastupdated: "2024-07-26"
 
 subcollection: pattern-openshift-vpc-mz-resiliency
 
@@ -29,12 +29,11 @@ content-type: reference-architecture
 
 
 
-# OpenShift on VPC 
+# OpenShift on VPC Architecture 
 {: #openshift-on-vpc}
 {: toc-content-type="reference-architecture"}
 {: toc-version="1.0"}
 
-# Solution Architecture
 
 -   ROKS is deployed on VPC Servers across three availability zones within a region.
 -   Compatible/recommended nodes (that are currently available for ROKS on IBM Cloud – Virtual Servers Instances Shared) are used for worker nodes to run stateful application in production environment.   
