@@ -121,7 +121,7 @@ The Architecture Framework, described in [Introduction to the Architecture Frame
 
 
 
-|The following represents a typical set of requirements for enterprise-ready ROKS deployed in a public cloud.
+The following represents a typical set of requirements for enterprise-ready ROKS deployed in a public cloud.
 
 | **Aspect**         | **Requirements**                                                                                                                                             |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -180,6 +180,6 @@ The Architecture Framework, described in [Introduction to the Architecture Frame
 | | [Veeam](/docs/vpc?topic=vpc-about-veeam) | Controls both the backups and restores of all VSIs or BMs. Veeam Backup & Replication 12 |
 | Service Management (Observability) | [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-about-monitor)| Apps and operational monitoring|
 | | [IBM Log Analysis](/docs/log-analysis?topic=log-analysis-getting-started) | Apps and operational logs |
-{: caption="Table 2. Pattern components" caption-side="bottom"} <!-- each table MUST have a caption attribute>
+{: caption="Table 2. Pattern components" caption-side="bottom"}
 
 As mentioned earlier, the Architecture Framework is used to guide and determine the applicable aspects and domains for which architecture decisions need to be made. The following sections contain the considerations, and architecture decisions for the aspects and domains that are in play in this solution pattern.
