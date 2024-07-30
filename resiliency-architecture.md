@@ -13,7 +13,7 @@ keywords:
 # Architecture decisions for resiliency
 {: #resiliency-architecture}
 
-The following sections summarize the resiliency architecture decisions for Red Hat OpenShift deployed on IBM Cloud VPC infrastructure.
+The following sections summarize the resiliency architecture decisions for Red Hat OpenShift deployed on {{site.data.keyword.Bluemix_notm}} VPC infrastructure.
 
 
 | **\#**                     | **AD**                                                     | **Requirement**                                                                                                                       | **Alternative**                                                                              | **Decision**                         | **Rationale**                                                                                                                                                                                                                                                                                                                                                                    |

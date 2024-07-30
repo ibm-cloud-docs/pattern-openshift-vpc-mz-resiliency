@@ -68,9 +68,9 @@ Table of Contents
 
 # 1. Pattern Objectives
 
-The objective of this pattern is to provide a resilient solution design for Red Hat OpenShift Kubernetes Service (ROKS) on a Virtual Private Cloud (VPC) architecture deployment, on IBM Cloud, that meets high availability requirements for enterprise workloads that require persistent storage. This pattern is intended to:
+The objective of this pattern is to provide a resilient solution design for Red Hat OpenShift Kubernetes Service (ROKS) on a Virtual Private Cloud (VPC) architecture deployment, on {{site.data.keyword.Bluemix_notm}}, that meets high availability requirements for enterprise workloads that require persistent storage. This pattern is intended to:
 
--   Accelerate and simplify solution design by providing a standard IBM Cloud deployment architecture reference following the [IBM Architecture Design Framework](https://cloud.ibm.com/docs/architecture-framework).
+-   Accelerate and simplify solution design by providing a standard {{site.data.keyword.Bluemix_notm}} deployment architecture reference following the [IBM Architecture Design Framework](https://cloud.ibm.com/docs/architecture-framework).
 -   Provide a prescriptive, end-2-end enterprise-class solution design, with diagrams, component architecture decisions along with rationale for cloud component selection to meet enterprise requirements.
 -   Ensure requirements can be met from a performance, system availability and security perspective.
 
@@ -84,7 +84,7 @@ The multi-zone ROKS cluster pattern provides 99.99% infrastructure availability.
 
 This pattern uses a multi-zone workload cluster configured with Portworx-Store to provide persistent storage for databases and other stateful application components and a Portworx-Backup cluster for application data backup and recovery.
 
-Deploying ROKS cluster across three availability zones is the recommended option for a highly available cluster to be used for highly available stateful applications. IBM Cloud-managed control plane nodes are automatically distributed across availability zones on IBM Cloud. The network communication across IBM Cloud availability zones has low enough latency to satisfy ROKS etcd and Portworx requirements. Portworx provides a robust data service platform for persistent storage with replication and high availability features across multiple availability zones to run stateful containerized applications. This pattern is not to be used across IBM Cloud regions, which have much higher latency for region-to-region network communication.
+Deploying ROKS cluster across three availability zones is the recommended option for a highly available cluster to be used for highly available stateful applications. {{site.data.keyword.Bluemix_notm}}-managed control plane nodes are automatically distributed across availability zones on {{site.data.keyword.Bluemix_notm}}. The network communication across {{site.data.keyword.Bluemix_notm}} availability zones has low enough latency to satisfy ROKS etcd and Portworx requirements. Portworx provides a robust data service platform for persistent storage with replication and high availability features across multiple availability zones to run stateful containerized applications. This pattern is not to be used across {{site.data.keyword.Bluemix_notm}} regions, which have much higher latency for region-to-region network communication.
 
 The Multi-Zone Resiliency Pattern for ROKS can be used to support business continuity policies or regulatory requirements with country boundaries or geo data residence constraints. It does not support out-of-region disaster recovery. [See the **Cross-Region Resiliency Pattern** to address disaster recovery policies or business continuity policies with geo or distance compliance requirements.]
 
@@ -144,7 +144,7 @@ The following represents a typical set of requirements for enterprise-ready ROKS
 # 4. Solution Architecture
 
 -   ROKS is deployed on VPC Servers across three availability zones within a region.
--   Compatible/recommended nodes (that are currently available for ROKS on IBM Cloud – Virtual Servers Instances Shared) are used for worker nodes to run stateful application in production environment.   
+-   Compatible/recommended nodes (that are currently available for ROKS on {{site.data.keyword.Bluemix_notm}} – Virtual Servers Instances Shared) are used for worker nodes to run stateful application in production environment.   
     ![](image/545eb7ba85b9774f5a5a2b170ea6242a.png)Ref: IBM Cloud Docs
 -   High performance Secondary storage (10 IOPS Block) is used and attached to worker nodes. Portworx Enterprise (an SDS – Software Defined Storage) is setup in the cluster across three zones using a Converged architecture (compute and storage in same node). Built-in internal key-value database (KVDB) is used for Portworx cluster.
 -   ![Portworx deployment architecture hyperconverged](image/0c1947f67fce0cfed4a32e2fb6107f7d.png)Ref: Portworx Docs

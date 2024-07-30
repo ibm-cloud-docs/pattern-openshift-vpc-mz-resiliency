@@ -15,23 +15,17 @@ keywords:
 # Overview
 {: #overview}
 
+This pattern is intended to provide an {{site.data.keyword.IBM}} solution design for the deployment of [enter official pattern name] on {{site.data.keyword.Bluemix_short}} to:
 
+* Accelerate and simplify solution design by providing a standard {{site.data.keyword.Bluemix_notm}} deployment architecture reference following the [IBM Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro).
+* Provide a prescriptive, end to end enterprise-class solution design, with diagrams, component architecture decisions along with rationale for cloud component selection to meet enterprise requirements.
+* Ensure requirements can be met from a performance, system availability, and security perspective.
 
-This pattern is intended to:
-* Accelerate and simplify solution design by providing a standard IBM Cloud deployment architecture reference following the IBM Architecture Framework.
-* Provide a prescriptive, end-2-end enterprise-class solution design, with diagrams, component architecture decisions along with rationale for cloud component selection to meet enterprise requirements.
-* Ensure requirements can be met from a performance, system availability and security perspective.
+##  Pattern objectives
 
+The objective of this pattern is to provide a resilient solution design for Red Hat OpenShift Kubernetes Service (ROKS) on a Virtual Private Cloud (VPC) architecture deployment, on {{site.data.keyword.Bluemix_notm}}, that meets high availability requirements for enterprise workloads that require persistent storage. This pattern is intended to:
 
-
-
-
-
-##  Pattern Objectives
-
-The objective of this pattern is to provide a resilient solution design for Red Hat OpenShift Kubernetes Service (ROKS) on a Virtual Private Cloud (VPC) architecture deployment, on IBM Cloud, that meets high availability requirements for enterprise workloads that require persistent storage. This pattern is intended to:
-
--   Accelerate and simplify solution design by providing a standard IBM Cloud deployment architecture reference following the [IBM Architecture Design Framework](https://cloud.ibm.com/docs/architecture-framework).
+-   Accelerate and simplify solution design by providing a standard {{site.data.keyword.Bluemix_notm}} deployment architecture reference following the [IBM Architecture Design Framework](https://cloud.ibm.com/docs/architecture-framework).
 -   Provide a prescriptive, end-2-end enterprise-class solution design, with diagrams, component architecture decisions along with rationale for cloud component selection to meet enterprise requirements.
 -   Ensure requirements can be met from a performance, system availability and security perspective.
 
@@ -45,7 +39,7 @@ The multi-zone ROKS cluster pattern provides 99.99% infrastructure availability.
 
 This pattern uses a multi-zone workload cluster configured with Portworx-Store to provide persistent storage for databases and other stateful application components and a Portworx-Backup cluster for application data backup and recovery.
 
-Deploying ROKS cluster across three availability zones is the recommended option for a highly available cluster to be used for highly available stateful applications. IBM Cloud-managed control plane nodes are automatically distributed across availability zones on IBM Cloud. The network communication across IBM Cloud availability zones has low enough latency to satisfy ROKS etcd and Portworx requirements. Portworx provides a robust data service platform for persistent storage with replication and high availability features across multiple availability zones to run stateful containerized applications. This pattern is not to be used across IBM Cloud regions, which have much higher latency for region-to-region network communication.
+Deploying ROKS cluster across three availability zones is the recommended option for a highly available cluster to be used for highly available stateful applications. {{site.data.keyword.Bluemix_notm}}-managed control plane nodes are automatically distributed across availability zones on {{site.data.keyword.Bluemix_notm}}. The network communication across {{site.data.keyword.Bluemix_notm}} availability zones has low enough latency to satisfy ROKS etcd and Portworx requirements. Portworx provides a robust data service platform for persistent storage with replication and high availability features across multiple availability zones to run stateful containerized applications. This pattern is not to be used across {{site.data.keyword.Bluemix_notm}} regions, which have much higher latency for region-to-region network communication.
 
 The Multi-Zone Resiliency Pattern for ROKS can be used to support business continuity policies or regulatory requirements with country boundaries or geo data residence constraints. It does not support out-of-region disaster recovery. [See the **Cross-Region Resiliency Pattern** to address disaster recovery policies or business continuity policies with geo or distance compliance requirements.]
 
