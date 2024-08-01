@@ -15,9 +15,9 @@ keywords:
 # Overview
 {: #overview}
 
-The Red Hat OpenShift on VPC resiliency pattern is intended to provide an {{site.data.keyword.IBM}} solution design for the deployment on {{site.data.keyword.Bluemix_short}} to:
+The Red Hat OpenShift on VPC multi zone resiliency pattern is intended to provide an {{site.data.keyword.IBM}} solution design for deployment on {{site.data.keyword.Bluemix_short}}
 
-This document focuses on using cloud platform capabilities to architect resilient Red Hat OpenShift on VPC. The pattern provides high availability and backup architecture within a single region for Red Hat OpenShift on VPC.
+This document focuses on using cloud platform capabilities to architect a resilient Red Hat OpenShift on Virtual Private Cloud solution. The pattern provides high availability and backup architecture within a single region for Red Hat OpenShift on VPC.
 
 ## Pattern objectives
 {: #vpc-resiliency-objectives}
