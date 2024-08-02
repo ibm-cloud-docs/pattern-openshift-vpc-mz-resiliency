@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-07-26"
+lastupdated: "2024-08-02"
 
 subcollection: pattern-openshift-vpc-mz-resiliency
 
@@ -12,18 +12,17 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-
 # References
 {: #references}
 
-[Cluster Autoscaler](https://cloud.ibm.com/docs/openshift?topic=openshift-cluster-scaling-classic-vpc&interface=ui)
+[Cluster Autoscaler](/docs/openshift?topic=openshift-cluster-scaling-classic-vpc&interface=ui)
 
-[ALB multi-zone configuration](https://cloud.ibm.com/docs/vpc?topic=vpc-load-balancers-about&interface=api#horizontal-scaling)
+[ALB multi-zone configuration](/docs/vpc?topic=vpc-load-balancers-about&interface=api#horizontal-scaling)
 
-[IBM Cloud SLA](https://www.ibm.com/support/customer/csol/terms/?id=i126-9268&lc=en#detail-document)
+[IBM Cloud SLA](https://www.ibm.com/support/customer/csol/terms/?id=i126-9268&lc=en#detail-document){: external}
 
-[Portworx Enterprise](https://cloud.ibm.com/docs/openshift?topic=openshift-storage_portworx_plan)
+[Portworx Enterprise](/docs/openshift?topic=openshift-storage_portworx_plan)
 
-[Portworx Backup](https://cloud.ibm.com/docs/openshift?topic=openshift-storage_portworx_backup\#px-backup-and-restore)
+[Portworx Backup](/docs/openshift?topic=openshift-storage_portworx_backup\#px-backup-and-restore)
 
-[{{site.data.keyword.Bluemix_notm}} Regions & Zones](https://www.ibm.com/docs/en/cloud-orchestrator/2.5.0.9?topic=security-regions-availability-zones-quota)
+[{{site.data.keyword.Bluemix_notm}} Regions & Zones](docs/en/cloud-orchestrator/2.5.0.9?topic=security-regions-availability-zones-quota)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-07-26"
+lastupdated: "2024-08-02"
 
 subcollection: pattern-openshift-vpc-mz-resiliency
 
@@ -16,15 +16,35 @@ keywords:
 The following sections summarize the architecture decisions for service management for the Red Hat OpenShift multi-zone resiliency pattern.
 
 
-| **\#**             | **AD**                                        | **Requirement**                                                                                         | **Alternative**                                                                                          | **Decision**                                              | **Rationale**                                                                                                                          |
-|--------------------|-----------------------------------------------|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| **1. Monitoring**  |                                               |                                                                                                         |                                                                                                          |                                                           |                                                                                                                                        |
-| 1.1                | Operational Monitoring of ROKS cluster        | Monitor ROKS cluster health                                                                           | -OpenShift Monitoring integrated with IBM Cloud Monitoring\n -IBM Cloud Monitoring\n -BYO Monitoring Tool | OpenShift Monitoring integrated with IBM Cloud Monitoring | OpenShift monitoring can also be used to monitor Portworx. For an overall solution, it should be integrated with IBM Cloud Monitoring. |
-| 1.2                | Operational Monitoring of Portworx components | - Monitor Portworx components health                                                                    | - OpenShift Monitoring\n - IBM Cloud Monitoring\n - BYO Monitoring Tool                                      | OpenShift Monitoring                                      | Portworx monitoring requires OpenShift monitoring (Prometheus)                                                                         |
-| **2. Logging**     |                                               |                                                                                                         |                                                                                                          |                                                           |                                                                                                                                        |
-| 2.1                | Logs Monitoring for ROKS                      | Monitor operational logs to detect issues that might impact the availability of ROKS                  | -OpenShift Logging integrated with IBM Cloud Logging\n -IBM Cloud Logging\n -BYO Logging Tool             | OpenShift Logging integrated with IBM Cloud Logging       | OpenShift logging can also be used for Portworx. For an overall solution, it should be integrated with IBM Cloud Logging.              |
-| 2.2                | Logs Monitoring for Portworx components       |                                                                                                         | -OpenShift Logging\n -IBM Cloud Logging\n -BYO Logging Tool                                               | OpenShift Logging                                         | On IBM Cloud, Portworx logging requires OpenShift logging tools                                                                        |
-| **3. Alerting**    |                                               |                                                                                                         |                                                                                                          |                                                           |                                                                                                                                        |
-| 3.1                | Operational alerts for ROKS cluster           | Provide a mechanism to identify and send notifications about operational issues found in ROKS cluster | -Prometheus Alertmanager\n -IBM Cloud Monitoring +  IBM Cloud Logging + Event Notifications              | Prometheus Alertmanager                                   | Prometheus Alertmanager can be used for Portworx components                                                                            |
-| 3.2                | Operational alerts for Portworx components    | Provide a mechanism to identify and send notifications about issues found in Portworx components      | -Prometheus Alertmanager\n -IBM Cloud Activity Tracker + IBM Monitoring +  Event Notifications           | Prometheus Alertmanager                                   | Portworx alerting solution is based on Prometheus Alertmanager                                                                         |
-{: caption="Table 7. Architecture decisions for service management" caption-side="bottom"}
+## Architecture decisions for monitoring 
+{: #arch-monitoring }
+
+The following are architecture decisions for monitoring for this design.
+
+| Architecture decision | Requirement | Alternative | Decision | Rationale |
+| -------------- | -------------- | -------------- | -------------- | -------------- |
+| Operational monitoring of Red Hat OpenShift cluster        | Monitor Red Hat OpenShift cluster health                                                                           | - Red Hat OpenShift monitoring integrated with {{site.data.keyword.Bluemix_notm}} monitoring \n - {{site.data.keyword.Bluemix_notm}} Monitoring\n - BYO monitoring tool | Red Hat OpenShift monitoring integrated with {{site.data.keyword.Bluemix_notm}} monitoring | Red Hat OpenShift monitoring can also be used to monitor Portworx. For an overall solution, it should be integrated with {{site.data.keyword.Bluemix_notm}} monitoring. |
+| Operational monitoring of Portworx components | - Monitor Portworx components health                                                                    | - Red Hat OpenShift monitoring \n - {{site.data.keyword.Bluemix_notm}} monitoring \n - BYO monitoring tool                                      | Red Hat OpenShift monitoring                                      | Portworx monitoring requires Red Hat OpenShift monitoring for Prometheus                                                                         |
+{: caption="Table 1. Architecture decisions for service management monitoring" caption-side="bottom"}
+
+## Architecture decisions for logging 
+{: #arch-logging}
+
+The following are architecture decisions for logging for this design.
+
+| Architecture decision | Requirement | Alternative | Decision | Rationale |
+| -------------- | -------------- | -------------- | -------------- | -------------- |
+| Logs monitoring for Red Hat OpenShift                      | Monitor operational logs to detect issues that might impact the availability of Red Hat OpenShift                  | -  Red Hat OpenShift logging integrated with {{site.data.keyword.Bluemix_notm}} logging \n - {{site.data.keyword.Bluemix_notm}} logging \n - BYO logging tool             | Red Hat OpenShift logging integrated with {{site.data.keyword.Bluemix_notm}} logging       | Red Hat OpenShift logging can also be used for Portworx. For an overall solution, it should be integrated with {{site.data.keyword.Bluemix_notm}} logging.              |
+| Logs monitoring for Portworx components       |                                                                                                         | - Red Hat OpenShift logging \n - {{site.data.keyword.Bluemix_notm}} logging \n - BYO logging tool                                               | Red Hat OpenShift logging                                         | On {{site.data.keyword.Bluemix_notm}}, Portworx logging requires Red Hat OpenShift logging tools                                                                        |
+{: caption="Table 2. Architecture decisions for service management logging" caption-side="bottom"}
+
+## Architecture decisions for alerting 
+{: #arch-alerting }
+
+The following are architecture decisions for alerting for this design.
+
+| Architecture decision | Requirement | Alternative | Decision | Rationale |
+| -------------- | -------------- | -------------- | -------------- | -------------- |
+ | Operational alerts for Red Hat OpenShift cluster           | Provide a mechanism to identify and send notifications about operational issues that are found in a Red Hat OpenShift cluster | - Prometheus Alertmanager \n - {{site.data.keyword.Bluemix_notm}} monitoring and {{site.data.keyword.Bluemix_notm}} logging and event notifications              | Prometheus Alertmanager                                   | Prometheus Alertmanager can be used for Portworx components                                                                            |
+| Operational alerts for Portworx components    | Provide a mechanism to identify and send notifications about issues that are found in Portworx components      | - Prometheus Alertmanager \n - {{site.data.keyword.Bluemix_notm}} Activity Tracker and IBM Monitoring +  Event notifications           | Prometheus Alertmanager                                   | Portworx alerting solution is based on Prometheus Alertmanager                                                                         |
+{: caption="Table 3. Architecture decisions for service management alerting" caption-side="bottom"}
