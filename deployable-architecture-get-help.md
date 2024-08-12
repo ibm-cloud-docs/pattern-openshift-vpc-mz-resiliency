@@ -13,7 +13,6 @@ subcollection: _your-subcollection_
 {{site.data.keyword.attribute-definition-list}}
 
 
-
 # Getting help and support for _deployableArchitectureName_
 {: #help-and-support}
 
