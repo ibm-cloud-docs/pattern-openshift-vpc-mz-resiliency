@@ -41,17 +41,4 @@ Deploying ROKS cluster across three availability zones is the recommended option
 
 The Multi-Zone Resiliency Pattern for ROKS can be used to support business continuity policies or regulatory requirements with country boundaries or geo data residence constraints. It does not support out-of-region disaster recovery. [See the **Cross-Region Resiliency Pattern** to address disaster recovery policies or business continuity policies with geo or distance compliance requirements.]
 
-Following the [Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro), the multi-zone resiliency pattern for Red Hat OpenShift covers design considerations and architecture decisions for the following aspects and domains:
 
--   **Compute:** Containers
--   **Storage:** Primary Storage, Backup Storage, SDS
--   **Networking:** Load Balancing
--   **Security:** Data Security
--   **Resiliency:** High Availability, Backup, and Restore
--   **Service Management:** Monitoring, Logging, Auditing, Alerting
-
-![](image/heat-map.svg)
-
-[Multi-Zone Resiliency for ROKS Solution Design Scope]
-
-The Architecture Design Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. For more information, see [Introduction to the Architecture Design Framework](/docs/architecture-framework?topic=architecture-framework-intro). 
