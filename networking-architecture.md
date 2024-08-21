@@ -41,6 +41,6 @@ The following are architecture decisions for network segmentation and isloation 
 
 | Architecture decision | Requirement | Alternative | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
-| Cluster load balancer | Distribute compute across zones for high availability. | - VPC ALB \n - VPC | VPC ALB | The VPC ALB distributes traffic among worker nodes across zones and it is automatically provisioned when a multi-zone OpenShift cluster is created. |
+| Cluster load balancer | Distribute compute across zones for high availability. | - VPC Application Load Balancer (ALB) \n - VPC Network Load Balancer | VPC ALB | The VPC ALB distributes traffic among worker nodes across zones and it is automatically provisioned when a multi-zone OpenShift cluster is created. |
 {: caption="Table 8. Architecture decisions for load balancing." caption-side="bottom"}
 
