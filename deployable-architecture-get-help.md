@@ -6,7 +6,7 @@ lastupdated: "2023-04-06"
 
 keywords:
 
-subcollection: _your-subcollection_
+subcollection: pattern-openshift-vpc-mz-resiliency
 
 ---
 
