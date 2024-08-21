@@ -70,13 +70,5 @@ The following are security architecture decisions for the Red Hat OpenShift serv
 
 | Architecture decision | Requirement |  Option | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
-|Threat detection and response|- Boundary protection: highest level of isolation from external network threats \n - IPS/IDS protection at all ingress/egress \n - Unified Threat Management (UTM) Firewall|BYO Virtual Firewall (on VSI) in Edge VPC (deployed across availability zones) client choices: \n [Fortigate \n  [Palo Alto](https://cloud.ibm.com/catalog/content/ibmcloud-vmseries-1.9-6470816d-562d-4627-86a5-fe3ad4e94b30-global){: external} | text |It can be provided by Enterprise Network DMZ \n In addition, if client requires: However, \n - Virtual FW on VSI in the Transit/Edge VPC \n - Client preference recommendation is Fortigate or Juniper \n - Fortigate supports native high availability configuration \n - Fortigate and Juniper both support both IPS and IDS|
+|Threat detection and response|- Boundary protection: highest level of isolation from external network threats \n - Intrusion Prevension (IPS)/Intrusion Detection (IDS) protection at all ingress/egress \n - Unified Threat Management (UTM) Firewall|BYO Virtual Firewall (on VSI) in Edge VPC (deployed across availability zones) client choices: \n [Fortigate \n  [Palo Alto](https://cloud.ibm.com/catalog/content/ibmcloud-vmseries-1.9-6470816d-562d-4627-86a5-fe3ad4e94b30-global){: external} | text |It can be provided by Enterprise Network Demilitarized Zone (DMZ) \n In addition, if client requires: However, \n - Virtual FW on VSI in the Transit/Edge VPC \n - Client preference recommendation is Fortigate or Juniper \n - Fortigate supports native high availability configuration \n - Fortigate and Juniper both support both IPS and IDS|
 {: caption="Table 6. Threat detection and response architecture decisions" caption-side="bottom"}
-
-## Architecture decisions for governance, risk, and compliance
-{: #governance-risk-and-compliance}
-
-| Architecture decision | Requirement |  Option | Decision | Rationale |
-| -------------- | -------------- | -------------- | -------------- | -------------- |
-|Governance, risk, and compliance|  |  |  | |
-{: caption="Table 7. Govenrnace, risk and compliance architecture decisions" caption-side="bottom"}
