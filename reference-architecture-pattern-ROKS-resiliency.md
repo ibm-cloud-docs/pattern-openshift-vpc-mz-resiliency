@@ -51,7 +51,7 @@ content-type: reference-architecture
 ## Architecture diagram
 {: #architecture-diagram}
 
-![Multi-Zone Resiliency for ROKS Solution Architecture](image/Architectureoverview.svg)
+![Multi-Zone Resiliency for ROKS Solution Architecture](image/Architectureoverview.svg "Archtecture Overview")
 
 [Multi-Zone Resiliency for ROKS Solution Architecture]
 
