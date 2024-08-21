@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-02"
+lastupdated: "2024-08-21"
 
 subcollection: pattern-openshift-vpc-mz-resiliency
 
@@ -23,3 +23,4 @@ keywords:
 | Logs storage: Audit and operational  | - Provide highly available storage for logs                                                                                                        | - VPC Block storage  \n - Cloud Object Storage                                                      | VPC Block storage                                                      | Built-in Red Hat OpenShift monitoring tools are used to and can be installed by using the cluster logging operator. The cluster logging instance needs an {{site.data.keyword.Bluemix_notm}} Block Storage class.                                                                                                                                                                                                  |
 | Backup storage                      | - Provide highly available storage for backups                                                                                                     | - VPC Block storage  \n - Cloud Object Storage                                                            | Cloud Object Storage                                                                    | Cloud Object Storage provides low-cost, high available storage for data backups. Cloud Object Storage can be cross-region for data backups to enable recovery if a region outage occurs.                                                                                                                                                                                      |
 | Portworx key-value database (KVDB)  | Provide a KVDB solution for Portworx to store the cluster's state, configuration data, and metadata associated with storage volumes and snapshots. | - Internal KVDB for Portworx \n - {{site.data.keyword.Bluemix_notm}} Database for etcd - Other external KVDB                        | Internal KVDB for Portworx                                             | Portworx recommends by using the built-in internal KVDB for your Portworx cluster except when configuring a synchronous disaster recovery setup. For setting up an external KVDB, see [Setting up a Databases for etcd service instance](/docs/containers?topic=containers-storage_portworx_kv_store#portworx-kv-db).  |
+{: caption="Table 3. Architecture decisions for Storage" caption-side="bottom"}
