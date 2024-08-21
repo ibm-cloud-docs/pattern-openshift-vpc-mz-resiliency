@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-02"
+lastupdated: "2024-08-21"
 
 subcollection: pattern-openshift-vpc-mz-resiliency
 
