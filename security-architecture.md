@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-02"
+lastupdated: "2024-08-21"
 
 subcollection: pattern-openshift-vpc-mz-resiliency
 
@@ -13,7 +13,7 @@ keywords:
 # Architecture decisions for security
 {: #security-architecture}
 
-The following are security architecture decisions for the pattern name.
+The following are security architecture decisions for the Red Hat OpenShift service on {{site.data.keyword.Bluemix_notm}} multi-zone resiliency pattern. .
 
 ## Architecture decisions for encryption
 {: #data-encryption}
@@ -61,8 +61,8 @@ The following are security architecture decisions for the pattern name.
 
 | Architecture decision | Requirement |  Option | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
-| Core network protection                 | -   Strict separation of duties \n- Isolated security zones between environments \n- Isolated, private cloud environment| text | text | text |
-| Edge and endpoint protection                 | | text | text | text |
+| Core network protection                 | -   Strict separation of duties \n- Isolated security zones between environments \n- Isolated, private cloud environment|  |  |  |
+| Edge and endpoint protection                 | |  |  |  |
 {: caption="Table 5. Infrastructure and endpoint architecture decisions" caption-side="bottom"}
 
 ## Architecture decisions for threat detection and response
@@ -78,5 +78,5 @@ The following are security architecture decisions for the pattern name.
 
 | Architecture decision | Requirement |  Option | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
-|Governance, risk, and compliance| text | text | text | text|
+|Governance, risk, and compliance|  |  |  | |
 {: caption="Table 7. Govenrnace, risk and compliance architecture decisions" caption-side="bottom"}
