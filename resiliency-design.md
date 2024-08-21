@@ -41,7 +41,7 @@ It is recommended to spread the worker nodes evenly across three zones, with 50%
 Multizone clusters, also known as stretched clusters, provide protection from zone failures and physical host failures. If resources in one zone go down, the workloads can continue to run in worker nodes in the other zones.
 
 Multi-zone clusters are recommended for business-critical applications.
-{: tip}
+{: note}
 
 ## Application availability
 {: #application-availability}
@@ -71,8 +71,9 @@ The following are Portworx high availability requirements for enterprise statefu
 
 - A minimum 3 worker nodes across 3 AZs
 - A minimum of 8 cores and 8 GB RAM are recommended to be reserved for Portworx  
-    These are the minimum number of nodes, cores, and memory. Depending on the scale of the production environment, more nodes and higher cores and memory are required.
-    {: note}
+    
+These are the minimum number of nodes, cores, and memory. Depending on the scale of the production environment, more nodes and higher cores and memory are required.
+{: note}
 
 ## Backup and restore design
 {: #backup-and-restore-design}
@@ -92,4 +93,6 @@ Portworx backup provides a Kubernetes data protection platform for the persisten
 - Storage Orchestrator Runtime for Kubernetes (STORK) provides Kubernetes consistent backup of applications that are running in a workload cluster across multi-pod in a namespace. STORK is an agent and should be installed on the application cluster before PX-Backup cluster installation. STORK bridges the gap between Portworx backup running on your management cluster, and the workload cluster that needs to be backed up.
 - Portworx Backup uses MongoDB that runs with 3 replicas for high availability as the data store and is installed as part of the Portworx Backup deployment for writing the metadata of backup object data.
 
-    ![Portworx Backup Architecture](image/Portworx.svg)
+![](image/Portworx.svg)
+{: caption="Figure 4. Portworx Backup Architecture" caption-side="bottom"}
+
