@@ -24,7 +24,7 @@ This document focuses on using cloud platform capabilities to architect a resili
 
 The objective of this pattern is to provide a resilient solution design for Red Hat OpenShift Kubernetes Service on a Virtual Private Cloud (VPC) architecture deployment, on {{site.data.keyword.Bluemix_notm}}, that meets high availability requirements for enterprise workloads that require persistent storage. This pattern is intended to:
 
--   Accelerate and simplify solution design by providing a standard {{site.data.keyword.Bluemix_notm}} deployment architecture reference following the [IBM Architecture Design Framework] (/docs/architecture-framework).
+-   Accelerate and simplify solution design by providing a standard {{site.data.keyword.Bluemix_notm}} deployment architecture reference following the [IBM Architecture Design Framework](/docs/architecture-framework).
 -   Provide a prescriptive, end-2-end enterprise-class solution design, with diagrams, component architecture decisions along with rationale for cloud component selection to meet enterprise requirements.
 -   Ensure that requirements can be met from a performance, system availability and security perspective.
 
