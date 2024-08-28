@@ -1,24 +1,24 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-07-30"
+lastupdated: "2024-08-22"
 
-subcollection: pattern-vpc-vsi-cross-region-resiliency
+subcollection: pattern-openshift-vpc-mz-resiliency
 
 keywords:
 ---
 {{site.data.keyword.attribute-definition-list}}
 
-# Deploying a VPC VSI cross region architecture
+# Deploying an OpenShift VPC multi zone architecture
 
-{: #vpc-vsi-cross-da}
+{: #ROKS-vpc--mz-da}
 
-This guide outlines deploying a 3-tier web architecture in a cross-regional configuration, specifically in two distinct regions for a disaster recovery scenario. The deployment is based on an existing deployable architecture template, as well as a series of customizations to tailor the setup to the specific requirements for your environment.
+This guide outlines deploying a single region Red Hat OpenShift architecture in a multi zone resilient configuratio, specifically in thre availability zones. The deployment is based on an existing deployable architecture template, as well as a series of customizations to tailor the setup to the specific requirements for your environment.
 
-This is designed for customers who need a scalable, multi-region infrastructure with the flexibility of customizations post the initial deployment of the base Deployable Architecture. It allows for adapting various components, such as networking and security, to better suit individual business needs after the foundational architecture has been established.
+This is designed for customers who need a scalable, multi-zone kubernetes infrastructure with the flexibility of customizations post the initial deployment of the base Deployable Architecture. It allows for adapting various components, such as networking and security, to better suit individual business needs after the foundational architecture has been established.
 
 ## Before you begin
-{: #vpc-vsi-cross-prereqs}
+{: #ROKS-vpc-mz-prereqs}
 
 You need the following items to deploy and configure this reference architecture:
 
