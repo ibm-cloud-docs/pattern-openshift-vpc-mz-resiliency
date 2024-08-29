@@ -51,6 +51,8 @@ toc:
             navtitle: Networking
           - topic: resiliency-architecture.md
             navtitle: Resiliency
+          - topic: security-architecture.md
+            navtitle: Security
           - topic: service-management-architecture.md
             navtitle: Service management
           - other-architecture.md
