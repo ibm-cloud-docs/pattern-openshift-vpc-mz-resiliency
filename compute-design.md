@@ -15,7 +15,7 @@ keywords:
 # Compute design
 {: #compute-design}
 
-The multi-zone resiliency pattern for Red Hat OpenShift includes compute options that are highly available, properly isolated, provide the defined capacity for the applications, and can handle increased workload demands.
+The multizone resiliency pattern for Red Hat OpenShift includes compute options that are highly available, properly isolated, provide the defined capacity for the applications, and can handle increased workload demands.
 
 Provision VPC Virtual Server Infrastructure (VSI) for the worker nodes as follows:
 

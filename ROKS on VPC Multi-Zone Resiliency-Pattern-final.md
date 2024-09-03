@@ -74,21 +74,21 @@ The objective of this pattern is to provide a resilient solution design for Red 
 -   Provide a prescriptive, end-2-end enterprise-class solution design, with diagrams, component architecture decisions along with rationale for cloud component selection to meet enterprise requirements.
 -   Ensure requirements can be met from a performance, system availability and security perspective.
 
-This document focuses on leveraging cloud platform capabilities to architect resilient ROKS on VPC. The pattern provides high availability and backup architecture within a single region for ROKS on VPC.
+This document focuses on leveraging cloud platform capabilities to architect resilient ROKS on VPC. The pattern provides high availability and backup architecture within a single region for Red Hat OpenShift on VPC.
 
 # 2. Pattern Overview
 
-The Multi-Zone Resiliency Pattern for ROKS deploys containerized enterprise workloads that require persistent storage on VPC, using compute, storage, and network cloud resources as well as other Cloud Services provisioned across multiple availability zones within a single region .
+The Multi-Zone Resiliency Pattern for Red Hat OpenShift deploys containerized enterprise workloads that require persistent storage on VPC, using compute, storage, and network cloud resources as well as other Cloud Services provisioned across multiple availability zones within a single region .
 
-The multi-zone ROKS cluster pattern provides 99.99% infrastructure availability. For high availability of stateful application, close coordination between application teams, infrastructure teams (including availability of storage), and database teams is essential to design highly available stateful applications on multi-zone ROKS cluster.
+The multi-zone Red Hat OpenShift cluster pattern provides 99.99% infrastructure availability. For high availability of stateful application, close coordination between application teams, infrastructure teams (including availability of storage), and database teams is essential to design highly available stateful applications on multi-zone Red Hat OpenShift cluster.
 
 This pattern uses a multi-zone workload cluster configured with Portworx-Store to provide persistent storage for databases and other stateful application components and a Portworx-Backup cluster for application data backup and recovery.
 
-Deploying ROKS cluster across three availability zones is the recommended option for a highly available cluster to be used for highly available stateful applications. {{site.data.keyword.Bluemix_notm}}-managed control plane nodes are automatically distributed across availability zones on {{site.data.keyword.Bluemix_notm}}. The network communication across {{site.data.keyword.Bluemix_notm}} availability zones has low enough latency to satisfy ROKS etcd and Portworx requirements. Portworx provides a robust data service platform for persistent storage with replication and high availability features across multiple availability zones to run stateful containerized applications. This pattern is not to be used across {{site.data.keyword.Bluemix_notm}} regions, which have much higher latency for region-to-region network communication.
+Deploying Red Hat OpenShift cluster across three availability zones is the recommended option for a highly available cluster to be used for highly available stateful applications. {{site.data.keyword.Bluemix_notm}}-managed control plane nodes are automatically distributed across availability zones on {{site.data.keyword.Bluemix_notm}}. The network communication across {{site.data.keyword.Bluemix_notm}} availability zones has low enough latency to satisfy Red Hat OpenShift etcd and Portworx requirements. Portworx provides a robust data service platform for persistent storage with replication and high availability features across multiple availability zones to run stateful containerized applications. This pattern is not to be used across {{site.data.keyword.Bluemix_notm}} regions, which have much higher latency for region-to-region network communication.
 
-The Multi-Zone Resiliency Pattern for ROKS can be used to support business continuity policies or regulatory requirements with country boundaries or geo data residence constraints. It does not support out-of-region disaster recovery. [See the **Cross-Region Resiliency Pattern** to address disaster recovery policies or business continuity policies with geo or distance compliance requirements.]
+The Multi-Zone Resiliency Pattern for Red Hat OpenShift can be used to support business continuity policies or regulatory requirements with country boundaries or geo data residence constraints. It does not support out-of-region disaster recovery. [See the **Cross-Region Resiliency Pattern** to address disaster recovery policies or business continuity policies with geo or distance compliance requirements.]
 
-Following the [Architecture Framework](https://cloud.ibm.com/docs/architecture-framework?topic=architecture-framework-intro)\*, the Multi-Zone **Resiliency** Pattern for ROKS covers design considerations and architecture decisions for the following aspects and domains:
+Following the [Architecture Framework](https://cloud.ibm.com/docs/architecture-framework?topic=architecture-framework-intro)\*, the Multi-Zone **Resiliency** Pattern for Red Hat OpenShift covers design considerations and architecture decisions for the following aspects and domains:
 
 -   **Compute:** Containers
 -   **Storage:** Primary Storage, Backup Storage, SDS
@@ -109,13 +109,13 @@ Following the [Architecture Framework](https://cloud.ibm.com/docs/architecture-f
 
 Domains covered in this document.
 
-[Multi-Zone Resiliency for ROKS Solution Design Scope]
+[Multi-Zone Resiliency for Red Hat OpenShift Solution Design Scope]
 
 \*The Architecture Design Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. See [Introduction to the Architecture Design Framework](https://cloud.ibm.com/docs/architecture-framework?topic=architecture-framework-intro) for more details.
 
 # 3. Pattern Requirements
 
-The following represents a typical set of requirements for enterprise-ready ROKS deployed in a public cloud.
+The following represents a typical set of requirements for enterprise-ready Red Hat OpenShift deployed in a public cloud.
 
 | **Aspect**         | **Requirements**                                                                                                                                             |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -143,13 +143,13 @@ The following represents a typical set of requirements for enterprise-ready ROKS
 
 # 4. Solution Architecture
 
--   ROKS is deployed on VPC Servers across three availability zones within a region.
--   Compatible/recommended nodes (that are currently available for ROKS on {{site.data.keyword.Bluemix_notm}} – Virtual Servers Instances Shared) are used for worker nodes to run stateful application in production environment.   
+-   Red Hat OpenShift is deployed on VPC Servers across three availability zones within a region.
+-   Compatible/recommended nodes (that are currently available for Red Hat OpenShift on {{site.data.keyword.Bluemix_notm}} – Virtual Servers Instances Shared) are used for worker nodes to run stateful application in production environment.   
     ![](image/545eb7ba85b9774f5a5a2b170ea6242a.png)Ref: IBM Cloud Docs
 -   High performance Secondary storage (10 IOPS Block) is used and attached to worker nodes. Portworx Enterprise (an SDS – Software Defined Storage) is setup in the cluster across three zones using a Converged architecture (compute and storage in same node). Built-in internal key-value database (KVDB) is used for Portworx cluster.
 -   ![Portworx deployment architecture hyperconverged](image/0c1947f67fce0cfed4a32e2fb6107f7d.png)Ref: Portworx Docs
 -   Any databases that may be required for the stateful applications use the Portworx SDS.
--   In the ROKS multizone cluster, the worker nodes in the worker pools are distributed across multiple zones within one region. ROKS multizone clusters are designed to *evenly* schedule pods across worker nodes and zones to ensure availability and recovery from failure. If worker nodes are not spread *evenly* across the zones or capacity is insufficient in one of the zones, the ROKS controller might fail to schedule all requested pods.
+-   In the Red Hat OpenShift multizone cluster, the worker nodes in the worker pools are distributed across multiple zones within one region. Red Hat OpenShift multizone clusters are designed to *evenly* schedule pods across worker nodes and zones to ensure availability and recovery from failure. If worker nodes are not spread *evenly* across the zones or capacity is insufficient in one of the zones, the Red Hat OpenShift controller might fail to schedule all requested pods.
 -   Application Load Balancer (ALB) for VPC with multi-zone support is used to route traffic to the containerized application.
 -   Containerized stateful applications are deployed within the Workload cluster and VPC. Management tools, such as backup tools, are deployed in the Management cluster and VPC. A local Transit Gateway allows traffic between the management and workload VPCs.
 -   Worker nodes in worker pools are placed in separate subnets within each availability zone.
@@ -163,7 +163,7 @@ The following represents a typical set of requirements for enterprise-ready ROKS
 
 ![](image/30d2ddd09c25b8b2bb1dbc65da9c7602.png)
 
-[Multi-Zone Resiliency for ROKS Solution Architecture]
+[Multi-Zone Resiliency for Red Hat OpenShift Solution Architecture]
 
 ## 4.2 Solution Components
 

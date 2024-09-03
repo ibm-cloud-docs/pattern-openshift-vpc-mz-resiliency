@@ -20,7 +20,7 @@ The resiliency of applications that are deployed on Red Hat OpenShift clusters i
 ## Cluster availability
 {: #cluster-availability}
 
-Namely, the availability of Red Hat OpenShift clusters depends on the availability of the control plane components the main nodes and etcd database, and the availability of the worker nodes where the applications are deployed.
+The availability of Red Hat OpenShift clusters depends on the availability of the control plane components the main nodes and etcd database, and the availability of the worker nodes where the applications are deployed.
 
 For workloads deployed on Red Hat OpenShift on {{site.data.keyword.Bluemix_notm}} clusters, {{site.data.keyword.Bluemix_notm}} is responsible for the availability of the cluster’s control plane. When a Red Hat OpenShift on {{site.data.keyword.Bluemix_notm}} cluster is created, {{site.data.keyword.Bluemix_notm}} sets up highly available main nodes and control plane components, automatically backs up etcd data, and provides automated disaster recovery for the control plane. {{site.data.keyword.Bluemix_notm}} users are responsible for setting up highly available worker nodes. The following are deployment options for Red Hat OpenShift on {{site.data.keyword.Bluemix_notm}} clusters:
 
@@ -93,6 +93,4 @@ Portworx backup provides a Kubernetes data protection platform for the persisten
 - Storage Orchestrator Runtime for Kubernetes (STORK) provides Kubernetes consistent backup of applications that are running in a workload cluster across multi-pod in a namespace. STORK is an agent and should be installed on the application cluster before PX-Backup cluster installation. STORK bridges the gap between Portworx backup running on your management cluster, and the workload cluster that needs to be backed up.
 - Portworx Backup uses MongoDB that runs with 3 replicas for high availability as the data store and is installed as part of the Portworx Backup deployment for writing the metadata of backup object data.
 
-![](image/Portworx.svg)
-{: caption="Figure 4. Portworx Backup Architecture" caption-side="bottom"}
-
+![Portworx Backup Architecture](image/Portworx.svg){: caption="Figure 4. Portworx Backup Architecture" caption-side="bottom"}

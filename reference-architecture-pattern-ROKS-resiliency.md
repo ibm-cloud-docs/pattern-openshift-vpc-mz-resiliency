@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-29"
+lastupdated: "2024-09-03"
 
 subcollection: pattern-openshift-vpc-mz-resiliency
 
@@ -23,7 +23,7 @@ content-type: reference-architecture
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Red Hat OpenShift on VPC Architecture 
+# Red Hat OpenShift on VPC
 {: #openshift-on-vpc}
 {: toc-content-type="reference-architecture"}
 {: toc-version="1.0"}
@@ -51,9 +51,9 @@ content-type: reference-architecture
 ## Architecture diagram
 {: #architecture-diagram}
 
-![Multi-Zone Resiliency for ROKS Solution Architecture](image/Architectureoverview.svg "Archtecture Overview")
+![Multi-Zone Resiliency for Red Hat OpenShift Solution Architecture](image/Architectureoverview.svg "Archtecture Overview")
 
-[Multi-Zone Resiliency for ROKS Solution Architecture]
+[Multi-Zone Resiliency for Red Hat OpenShift Solution Architecture]
 
 ## Solution components
 
@@ -108,7 +108,7 @@ The Architecture Framework, described in [Introduction to the Architecture Frame
 ## Requirements 
 {: #requirements}
 
-The following represents a typical set of requirements for enterprise-ready ROKS deployed in a public cloud.
+The following represents a typical set of requirements for enterprise-ready Red Hat OpenShift deployed in a public cloud.
 
 | Aspect         | Requirements                                                                                                                                             |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -158,7 +158,7 @@ The following represents a typical set of requirements for enterprise-ready ROKS
 |                       | [Key Protect](/docs/key-protect?topic=key-protect-about)                                                         | Key Management Service                                                                                                                |
 |                       | [Secrets Manager](https://cloud.ibm.com/catalog/services/secrets-manager)                                                             | Certificate and Secrets Management                                                                                                    |
 |                       |                                                                                                                                       |                                                                                                                                       |
-| Service Management    | OpenShift Logging & Monitoring Tools                                                                                                  | For ROKS cluster and app logs and cluster metrics and app monitoring & Portworx Enterprise and Portworx Backup logging and monitoring |
+| Service Management    | OpenShift Logging & Monitoring Tools                                                                                                  | For Red Hat OpenShift cluster and app logs and cluster metrics and app monitoring & Portworx Enterprise and Portworx Backup logging and monitoring |
 | Resiliency & Capacity | [Cross-Region COS Buckets](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#endpoints-geo) | Backup storage (target for PX-Backup)                                                                                                 |
 |                       | Cluster Autoscaler                                                                                                                    | To adjust compute and storage capacity based on load changes                                                                          |
 |                       | VPC VSI (worker nodes) evenly spread across three zones, Portworx Enterprise (SDS) across multiple zones in a region                  | For Stateful Containerized apps high availability deployment                                                                          |
