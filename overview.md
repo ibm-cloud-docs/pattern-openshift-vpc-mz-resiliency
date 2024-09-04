@@ -40,6 +40,3 @@ This pattern uses a multi-zone workload cluster that is configured with Portworx
 Deploying Red Hat Openshift cluster across three availability zones is the recommended option for a highly available cluster to be used for highly available stateful applications. {{site.data.keyword.Bluemix_notm}}-managed control plane nodes are automatically distributed across availability zones on {{site.data.keyword.Bluemix_notm}}. The network communication across {{site.data.keyword.Bluemix_notm}} availability zones has low enough latency to satisfy Red Hat OpenShift etcd and Portworx requirements. Portworx provides a robust data service platform for persistent storage with replication and high availability features across multiple availability zones to run stateful containerized applications. This pattern is not to be used across {{site.data.keyword.Bluemix_notm}} regions, which have higher latency for region-to-region network communication.
 
 The multizone resiliency pattern for {{site.data.keyword.openshiftshort}} can be used to support business continuity policies or regulatory requirements with country boundaries or geo data residence constraints. It does not support out-of-region disaster recovery. 
-
-To address disaster recovery policies or business continuity policies with geo or distance compliance requirements, see [Cross-Region Resiliency Pattern]().
-{: note}
