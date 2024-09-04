@@ -15,6 +15,8 @@ keywords:
 # Architecture decisions for storage
 {: #storage-decisions}
 
+The following table summarizes the storage architecture decisions for the Red Hat OpenShift service on {{site.data.keyword.Bluemix_notm}} multizone resiliency pattern.
+
 | Architecture decision | Requirement |  Option | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
 | Main Storage for worker nodes       | - Provide highly available storage that meets the application performance requirements.                                                            | - VPC Block storage (5 IOPS) \n - VPC Block storage (10 IOPS) \n - VPC File storage \n - Cloud Object Storage  |  VPC Block storage (10 IOPS) performance for production environment | For Portworx across multi zone. Also, Cloud drives allow to dynamically provision the Portworx volumes. Portworx requires raw and unformatted block storage.                                                                                                                                                                                                                       |
