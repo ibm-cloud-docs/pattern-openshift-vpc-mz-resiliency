@@ -30,8 +30,7 @@ The objective of this pattern is to provide a resilient solution design for Red 
 
 ##  Pattern details
 {: #vpc-resiliency-details}
-
-The multizone resiliency pattern for {{site.data.keyword.openshiftshort}} deploys containerized enterprise workloads that require persistent storage on VPC, using compute, storage, and network cloud resources as well as other cloud services provisioned across multiple availability zones within a single region.
+Red Hat OpenShift service on {{site.data.keyword.Bluemix_notm}} multizone resiliency pattern deploys containerized enterprise workloads that require persistent storage on VPC, using compute, storage, and network cloud resources as well as other cloud services provisioned across multiple availability zones within a single region.
 
 The multizone Red Hat OpenShift cluster pattern provides 99.99% infrastructure availability. For high availability of stateful application, close coordination between application teams, infrastructure teams (including availability of storage), and database teams is essential to design highly available stateful applications on a multi-zone Red Hat OpenShift cluster.
 
@@ -39,4 +38,4 @@ This pattern uses a multi-zone workload cluster that is configured with Portworx
 
 Deploying Red Hat Openshift cluster across three availability zones is the recommended option for a highly available cluster to be used for highly available stateful applications. {{site.data.keyword.Bluemix_notm}}-managed control plane nodes are automatically distributed across availability zones on {{site.data.keyword.Bluemix_notm}}. The network communication across {{site.data.keyword.Bluemix_notm}} availability zones has low enough latency to satisfy Red Hat OpenShift etcd and Portworx requirements. Portworx provides a robust data service platform for persistent storage with replication and high availability features across multiple availability zones to run stateful containerized applications. This pattern is not to be used across {{site.data.keyword.Bluemix_notm}} regions, which have higher latency for region-to-region network communication.
 
-The multizone resiliency pattern for {{site.data.keyword.openshiftshort}} can be used to support business continuity policies or regulatory requirements with country boundaries or geo data residence constraints. It does not support out-of-region disaster recovery. 
+Red Hat OpenShift service on {{site.data.keyword.Bluemix_notm}} multizone resiliency pattern can be used to support business continuity policies or regulatory requirements with country boundaries or geo data residence constraints. It does not support out-of-region disaster recovery. 
