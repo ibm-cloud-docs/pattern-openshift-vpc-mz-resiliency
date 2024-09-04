@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-21"
+lastupdated: "2024-09-04"
 
 subcollection: pattern-openshift-vpc-mz-resiliency
 
@@ -15,7 +15,7 @@ keywords:
 # Architecture decisions for compute
 {: #compute-decisions}
 
-The following table summarizes the compute architecture decisions for
+The following table summarizes the compute architecture decisions for the Red Hat OpenShift service on {{site.data.keyword.Bluemix_notm}} multizone resiliency pattern.
 
 | Architecture decision| Requirement | Option | Decision| Rationale|
 |---|---|---|---|---|
@@ -24,4 +24,4 @@ The following table summarizes the compute architecture decisions for
 | Worker nodes distribution across availability zones |  |  Distribute evenly across three availability zones. Other| Distribute venly across three availability zones | If worker nodes are not spread evenly across the zones or capacity is insufficient in one of the zones, the Red Hat OpenShift controller might fail to schedule all requested pods. |
 | Worker nodes spread across multiple zones | Provide compute resources that are highly available and can handle increased workload demands. |  Anti-affinity pod deployment with no control | Anti-affinity pod deployment | Protection against zone failure |
 | Portwork Backup (PX-Backup) Cluster worker nodes. Three nodes spread across three availability zones. | - Provide compute resources that are highly available for Portwork Backup |  8 cores, 16 GB (VSI) Other options | 8 cores, 16 GB (VSI) | Outlined in the Portworx Backup documentation https://docs.portworx.com/portworx-backup-on-prem {: external} |
-{: caption="Table 4. Architecture decisions for Compute" caption-side="bottom"}
+{: caption="Table 1. Architecture decisions for Compute" caption-side="bottom"}
