@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-29"
+lastupdated: "2024-09-05"
 
 keywords:
 
@@ -13,7 +13,7 @@ subcollection: pattern-openshift-vpc-mz-resiliency
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Getting help and support for _deployableArchitectureName_
+# Getting help and support for OpenShift Deployable Architecture
 {: #help-and-support}
 
 If you experience an issue or have questions when deploying _deployableArchitectureName_, you can use the following resources before you open a support case.
