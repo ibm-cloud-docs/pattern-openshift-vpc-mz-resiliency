@@ -31,7 +31,7 @@ content-type: reference-architecture
 - Red Hat OpenShift is deployed on VPC servers across three availability zones within a region.
 - Compatible and recommended nodes that are available for Red Hat OpenShift on IBM Cloud – Virtual Servers Instances Shared are used for worker nodes to run stateful application in production environment. 
 
-![](image/ROKScluster.svg)
+![Red Hat OpenShift Multi zone cluster](image/ROKScluster.svg)
 
 High-performance auxiliary storage, 10 IOPS Block, is used to and attached to worker nodes. Portworx Enterprise, an SDS – Software Defined Storage, is setup in the cluster across three zones by using a Converged architecture, compute, and storage in the same node. Built-in internal key-value database (KVDB) is used for Portworx cluster.
 
