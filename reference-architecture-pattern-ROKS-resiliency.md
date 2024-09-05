@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-09-03"
+lastupdated: "2024-09-05"
 
 subcollection: pattern-openshift-vpc-mz-resiliency
 
@@ -87,7 +87,7 @@ High-performance auxiliary storage, 10 IOPS Block, is used to and attached to wo
 ## Design scope
 {: #design-scope}
 
-Following the [Architecture Framework](/docs/architecture-framework?topic=architecture-framework-taxonomy), pattern-name covers design considerations and architecture decisions for the following aspects and domains:
+Following the [Architecture Framework](/docs/architecture-framework?topic=architecture-framework-taxonomy), this pattern covers the design considerations and architecture decisions for the following aspects and domains:
 
 - Compute: Bare Metal and Virtual infrastructure
 - Storage: Primary, Backup, Archive, and Migration
