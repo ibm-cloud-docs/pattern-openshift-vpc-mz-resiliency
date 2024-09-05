@@ -28,8 +28,8 @@ content-type: reference-architecture
 {: toc-content-type="reference-architecture"}
 {: toc-version="1.0"}
 
-- Red Hat OpenShift is deployed on VPC servers across three availability zones within a region.
-- Compatible and recommended nodes that are available for Red Hat OpenShift on IBM Cloud – Virtual Servers Instances Shared are used for worker nodes to run stateful application in production environment. 
+The Red Hat OpenShift architecture is deployed on VPC servers across three availability zones within a region. 
+- The compatible and recommended nodes that are available for Red Hat OpenShift on {{site.data.keyword.Bluemix_notm}} – Virtual Servers Instances Shared are used for worker nodes to run stateful application in production environment. 
 
 ![Red Hat OpenShift Multi zone cluster](image/ROKScluster.svg)
 
@@ -79,7 +79,7 @@ High-performance auxiliary storage, 10 IOPS Block, is used to and attached to wo
 | Service Management    | Red Hat OpenShift logging and monitoring tools                                                                                                  | For Red Hat OpenShift cluster, app logs, cluster metrics, app monitoring, Portworx Enterprise, and Portworx Backup logging and monitoring |
 | Resiliency and capacity | [Cross-Region Cloud Object Storage Buckets](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#endpoints-geo) | Backup storage (target for PX-Backup)                                                                                                 |
 |                       | Cluster autoscaler                                                                                                                    | To adjust compute and storage capacity based on load changes                                                                          |
-|                       | VPC VSI (worker nodes) evenly spread across three zones, Portworx Enterprise (SDS) across multiple zones in a region                  | For Stateful Containerized apps high availability deployment                                                                          |
+|                       | VPC VSI (worker nodes) evenly spread across three zones, Portworx Enterprise (SDS) across multiple zones in a region                  | For stateful containerized apps high availability deployment                                                                          |
 |                       | Portworx Backup (PX-Backup)                                                                                                           | For Backup and restore of stateful applications data                                                                                  |
 {: caption="Table 1. Red Hat OpenShift for VPC components" caption-side="bottom"}
 
@@ -109,16 +109,12 @@ The following table represents a typical set of requirements for enterprise-read
 | Compute            | Provide a platform for containerized applications and management tools with adequate compute capacity                                                          |
 | Storage            | Provide storage that meets the state applications and database requirements.                                                                              |
 | Networking         | Deploy workloads in an isolated environment and enforce information flow policies.                                                                              |
-|                    |                                                                                                                                                              |
-|                    | Distribute incoming application requests across available compute resources.                                                                                 |
-|                    |                                                                                                                                                              |
-| Security           | Help ensure that all operation actions are run securely.                                                                                                          |
-|                    |                                                                                                                                                              |
+|                    | Distribute incoming application requests across available compute resources.                                                                                 |                                                                                                                                                              |
+| Security           | Help ensure that all operation actions are run securely.                                                                                                          |                                                                                                                                                              |
 |                    | Help ensure data encryption at rest and in transit for the storage layer.                                                                                         |
 |                    | Encrypt all backup data to protect it from unauthorized disclosure.                                                                                             |
 |                    | Encrypt all security data (operational and audit logs) to protect from unauthorized disclosure.                                                              |
-|                    | Encrypt all data by using customer-managed keys to meet regulatory compliance requirements for additional security and customer control.                        |
-|                    |                                                                                                                                                              |
+|                    | Encrypt all data by using customer-managed keys to meet regulatory compliance requirements for additional security and customer control.                        |                                                                                                                                                              |
 | Resiliency         | Provide a containerized platform that supports application availability targets and business continuity policies.                                              |
 |                    | Provide highly available compute, storage, network, and other cloud services for a resilient containerized application with persistent storage requirements. |
 |                    | Provide a backup solution for containers platform and application data to enable recovery if an unplanned outage occurs.                                   |
@@ -134,7 +130,7 @@ The following table represents a typical set of requirements for enterprise-read
 
 | Category              | Solution Components                                                                                                                   | How it is used in solution                                                                                                            |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| Compute               | Red Hat OpenShift Cluster                                                                                                             | Kubernetes cluster for containerized applications and backup tools                                                                    |
+| Compute               | Red Hat OpenShift cluster                                                                                                             | Kubernetes cluster for containerized applications and backup tools                                                                    |
 | Storage               | VPC Block Storage                                                                                                                     | For worker nodes storage and Portworx SDS                                                                                               |
 |                       | Portworx Enterprise                                                                                                                   | Portworx Enterprise provides highly available unified storage across multiple zones for stateful applications                         |
 |                       | [IBM Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage)   | backups, logs (application, operational, and audit logs)                                                                               |

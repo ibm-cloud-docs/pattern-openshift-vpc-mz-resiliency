@@ -32,8 +32,8 @@ The following are architecture decisions for network segmentation and isloation 
 
 | Architecture decision | Requirement | Alternative | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
-| Connectivity to cloud services | - Provide secure connection to cloud services |  - Virtual Private endpoints (VPE) \n - Private Cloud Service endpoints \n - Public Cloud Service endpoints | Virtual Private Endpoints (VPE) | Virtual Private Endpoints enable connectivity to {{site.data.keyword.Bluemix_notm}} services using private IP addresses allocated from a VPC subnet. |
-| VPC to VPC Connectivity | - Connect two or more VPCs over private network |  - Local Transit Gateway \n - Global Transit Gateway | Local Transit Gateway (TGW) | The Local Transit Gateway enables connectivity between the management and workload VPCs. The Management VPC has a Portworx Backup cluster. |
+| Connectivity to cloud services | Provide secure connection to cloud services |  - Virtual Private endpoints (VPE) \n - Private Cloud Service endpoints \n - Public Cloud Service endpoints | Virtual Private Endpoints (VPE) | Virtual Private Endpoints enable connectivity to {{site.data.keyword.Bluemix_notm}} services using private IP addresses allocated from a VPC subnet. |
+| VPC to VPC Connectivity | Connect two or more VPCs over private network |  - Local Transit Gateway \n - Global Transit Gateway | Local Transit Gateway (TGW) | The Local Transit Gateway enables connectivity between the management and workload VPCs. The Management VPC has a Portworx Backup cluster. |
 {: caption="Table 2. Architecture decisions for cloud native connectivity." caption-side="bottom"}
 
 ## Architecture decisions for load balancing
