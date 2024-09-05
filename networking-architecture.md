@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-21"
+lastupdated: "2024-09-04"
 
 subcollection: pattern-openshift-vpc-mz-resiliency
 
@@ -24,7 +24,7 @@ The following are architecture decisions for network segmentation and isloation 
 
 | Architecture decision | Requirement | Alternative | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
-| App deployment | - Deploy workloads in isolated environment and enforce information flow policies. \n -Provide isolated security zones between app tiers | - Virtual Private Clouds (VPCs) \n -Subnets \n - Security Groups (SGs) \n - ACLs | VPCs, subnets, Security Groups (SGs) and ACLs | VPCs provide secure, virtual networks for apps which are logically isolated from other public cloud tenants. Subnets provide a range of private IP addresses for each app within a zone. Security Groups and ACLs are used as firewalls to limit access to servers and apps. |
+| App deployment | - Deploy workloads in isolated environment and enforce information flow policies. \n - Provide isolated security zones between app tiers | - Virtual Private Clouds (VPCs) \n - Subnets \n - Security Groups (SGs) \n - ACLs | VPCs, subnets, Security Groups (SGs) and ACLs | VPCs provide secure, virtual networks for apps which are logically isolated from other public cloud tenants. Subnets provide a range of private IP addresses for each app within a zone. Security Groups and ACLs are used as firewalls to limit access to servers and apps. |
 {: caption="Table 1. Architecture decisions for network segmentation and isolation." caption-side="bottom"}
 
 ## Architecture decisions for cloud native connectivity
