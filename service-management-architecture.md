@@ -11,19 +11,19 @@ keywords:
 ---
 
 # Architecture decisions for service management
-{: #service}
+{: #service-management}
 
-The following sections summarize the architecture decisions for service management for the Red Hat OpenShift multi-zone resiliency pattern.
+The following summarizes the architecture decisions for service management for the Red Hat OpenShift multizone resiliency pattern.
 
 
 ## Architecture decisions for monitoring 
-{: #arch-monitoring }
+{: #arch-monitoring}
 
 The following are architecture decisions for monitoring for this design.
 
 | Architecture decision | Requirement | Alternative | Decision | Rationale |
 | -------------- | -------------- | -------------- | -------------- | -------------- |
-| Operational monitoring of Red Hat OpenShift cluster        | Monitor Red Hat OpenShift cluster health                                                                           | - Red Hat OpenShift monitoring integrated with {{site.data.keyword.Bluemix_notm}} monitoring \n - {{site.data.keyword.Bluemix_notm}} Monitoring\n - BYO monitoring tool | Red Hat OpenShift monitoring integrated with {{site.data.keyword.Bluemix_notm}} monitoring | Red Hat OpenShift monitoring can also be used to monitor Portworx. For an overall solution, it should be integrated with {{site.data.keyword.Bluemix_notm}} monitoring. |
+| Operational monitoring of Red Hat OpenShift cluster        | Monitor Red Hat OpenShift cluster health                                                                           | - Red Hat OpenShift monitoring integrated with {{site.data.keyword.Bluemix_notm}} monitoring \n - {{site.data.keyword.Bluemix_notm}} Monitoring \n - BYO monitoring tool | Red Hat OpenShift monitoring integrated with {{site.data.keyword.Bluemix_notm}} monitoring | Red Hat OpenShift monitoring can also be used to monitor Portworx. For an overall solution, it should be integrated with {{site.data.keyword.Bluemix_notm}} monitoring. |
 | Operational monitoring of Portworx components | - Monitor Portworx components health                                                                    | - Red Hat OpenShift monitoring \n - {{site.data.keyword.Bluemix_notm}} monitoring \n - BYO monitoring tool                                      | Red Hat OpenShift monitoring                                      | Portworx monitoring requires Red Hat OpenShift monitoring for Prometheus                                                                         |
 {: caption="Table 1. Architecture decisions for service management monitoring" caption-side="bottom"}
 

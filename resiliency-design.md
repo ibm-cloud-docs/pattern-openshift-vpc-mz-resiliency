@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-08-02"
+lastupdated: "2024-09-04"
 
 subcollection: pattern-openshift-vpc-mz-resiliency
 
@@ -27,7 +27,7 @@ For workloads deployed on Red Hat OpenShift on {{site.data.keyword.Bluemix_notm}
 ### Single-zone clusters
 {: #single-zone-clusters}
 
-In single zone clusters, all the worker nodes are provisioned in one availability zone that is selected by the user. For high availability, at least 3 worker nodes are recommended so that application instances can be distributed across multiple worker nodes to provide protection from worker node failures. Red Hat OpenShift automatically reschedules pods from unavailable worker nodes. In single-zone clusters, {{site.data.keyword.Bluemix_notm}} automatically creates three replicas of main components for high availability. If the cluster is created in a multizone region, the three primary replicas are spread across the availability zones in the region.
+In single zone clusters, all the worker nodes are provisioned in one availability zone that is selected by the user. For high availability, at least 3 worker nodes are recommended so that application instances can be distributed across multiple worker nodes to provide protection from worker node failures. Red Hat OpenShift automatically reschedules pods from unavailable worker nodes. In single-zone clusters, {{site.data.keyword.Bluemix_notm}} automatically creates three replicas of the main components for high availability. If the cluster is created in a multizone region, the three primary replicas are spread across the availability zones in the region.
 
 Single-zone clusters provide protection from logical and container failures but do not protect from zone failures or physical host failures since there is no guarantee that the worker nodes will be placed in different physical hosts. Single-zone clusters provide cost-effective solutions with 99.9% infrastructure availability that might be appropriate for nonproduction environments or nonbusiness critical applications.
 
@@ -40,7 +40,7 @@ It is recommended to spread the worker nodes evenly across three zones, with 50%
 
 Multizone clusters, also known as stretched clusters, provide protection from zone failures and physical host failures. If resources in one zone go down, the workloads can continue to run in worker nodes in the other zones.
 
-Multi-zone clusters are recommended for business-critical applications.
+Multizone clusters are recommended for business-critical applications.
 {: note}
 
 ## Application availability
@@ -60,7 +60,7 @@ For stateful applications, use highly available persistent storage based on the 
 
 In multizone clusters, data replication across availability zones can be achieved through application-level replication or storage replication.
 
-Portworx and Red Hat OpenShift Data Foundation (ODF) are Software Defined Storage (SDS) solutions that support data replication and can be deployed on Red Hat OpenShift clusters on {{site.data.keyword.Bluemix_notm}} to provide persistent storage for stateful apps. Portworx and Red Hat OpenShift Data Foundation replicate data across worker nodes to ensure that the stateful application can be rescheduled to a different worker node if there is a failure without losing data.
+Portworx and Red Hat OpenShift Data Foundation (ODF) are Software Defined Storage (SDS) solutions that support data replication and can be deployed on Red Hat OpenShift clusters on {{site.data.keyword.Bluemix_notm}} to provide persistent storage for stateful apps. Portworx and Red Hat OpenShift Data Foundation replicate data across worker nodes to help ensure that the stateful application can be rescheduled to a different worker node if there is a failure without losing data.
 
 ## High availability design
 {: #high-availability-design}
@@ -78,17 +78,17 @@ These are the minimum number of nodes, cores, and memory. Depending on the scale
 ## Backup and restore design
 {: #backup-and-restore-design}
 
-Backup and restore solutions for containerized applications must protect both the cluster as well as the application to enable recovery if there are failures triggered by ransomware attacks, software data corruption, accidental deletions, or any other cause.
+Backup and restore solutions for containerized applications must protect both the cluster as well as the application to enable recovery if there are failures that are triggered by ransomware attacks, software data corruption, accidental deletions, or any other cause.
 
-Namely, red Hat OpenShift on {{site.data.keyword.Bluemix_notm}} clusters include automatic back-up and recovery of cluster control plane components, etcd data. The user is responsible for backing up the application. Application backups must protect application data and metadata that is included in application-related cluster resources, stateful application’s data stored in persistent storage, and internal images.
+Namely, Red Hat OpenShift on {{site.data.keyword.Bluemix_notm}} clusters include automatic backup and recovery of cluster control plane components, etcd data. The user is responsible for backing up the application. Application backups must protect application data and metadata that is included in application-related cluster resources, stateful application’s data stored in persistent storage, and internal images.
 
-The Multi-zone Resiliency pattern for Red Hat OpenShift uses Portworx to backup the application.
+The multizone resiliency pattern for Red Hat OpenShift uses Portworx to backup the application.
 {: note}
 
-Portworx backup provides a Kubernetes data protection platform for the persistent data both in transit and at rest. It is app-aware including stateful apps and provides a simple self-service interface for backup and restore. It can operate at a pod, namespace, or cluster level. Portworx Backup (PX-Backup) is setup in Management VPC in an administration mutizone cluster. The following is a Portworx backup solution at a high level:
+Portworx backup provides a Kubernetes data protection platform for the persistent data both in transit and at rest. It is app-aware including stateful apps and provides a simple self-service interface for backup and restore. It can operate at a pod, namespace, or cluster level. Portworx Backup (PX-Backup) is setup in Management VPC in an administration multizone cluster. The following is a Portworx backup solution at a high level:
 
 - Backup Source: Portworx Enterprise (PX-Store) – SDS for stateful application
-- Target: {{site.data.keyword.Bluemix_notm}} Object Storage (Cloud Object Storage)
+- Target: {{site.data.keyword.Bluemix_notm}} Object Storage
 - Portworx has Backup Automation and Scheduling
 - Storage Orchestrator Runtime for Kubernetes (STORK) provides Kubernetes consistent backup of applications that are running in a workload cluster across multi-pod in a namespace. STORK is an agent and should be installed on the application cluster before PX-Backup cluster installation. STORK bridges the gap between Portworx backup running on your management cluster, and the workload cluster that needs to be backed up.
 - Portworx Backup uses MongoDB that runs with 3 replicas for high availability as the data store and is installed as part of the Portworx Backup deployment for writing the metadata of backup object data.
