@@ -32,8 +32,8 @@ You need the following items to deploy and configure this reference architecture
 
 1. Select two [VPC multi-zone region](docs/vpc?topic=vpc-creating-a-vpc-in-a-different-region&interface=cli) that you provision in.
 2. Provision the [Web App Multi-Zone Resiliency deployable architecture](https://cloud.ibm.com/catalog/7a4d68b4-cf8b-40cd-a3d1-f49aff526eb3/architecture/deploy-arch-ibm-web-app-mzr-75982e34-7b50-4945-96d9-4f686d669fc9-global){: external} in the first region that you chose.
-3. Provision the [Web App Multi-Zone Resiliency deployable architecture](https://cloud.ibm.com/catalog/7a4d68b4-cf8b-40cd-a3d1-f49aff526eb3/architecture/deploy-arch-ibm-web-app-mzr-75982e34-7b50-4945-96d9-4f686d669fc9-global) in the second region that you chose. You need to update the [subnets within the override.tftpl](https://github.com/terraform-ibm-modules/terraform-ibm-web-app-mzr-da/blob/main/solutions/e2e/override.tftpl) and provide different CIDR blocks so they do not overlap the first deployment.
-4. Create a [cross-region IBM Cloud Transit Gateway](/docs/transit-gateway?topic=transit-gateway-ordering-transit-gateway&interface=ui) between the workload VPC of the deployed architectures.
+ You need to update the [subnets within the override.tftpl](https://github.com/terraform-ibm-modules/terraform-ibm-web-app-mzr-da/blob/main/solutions/e2e/override.tftpl) and provide different CIDR blocks so they do not overlap the first deployment.
+
 
 ## Additional services
 {: #additonal-srv-vpc-vsi-cross}
