@@ -29,7 +29,7 @@ content-type: reference-architecture
 {: toc-version="1.0"}
 
 The Red Hat OpenShift architecture is deployed on VPC servers across three availability zones within a region. 
-The compatible and recommended nodes that are available for Red Hat OpenShift on {{site.data.keyword.Bluemix_notm}} – Virtual Servers Instances Shared are used for worker nodes to run stateful application in production environment. 
+The compatible and recommended nodes that are available for Red Hat OpenShift on {{site.data.keyword.Bluemix_notm}} – Virtual Servers Instances Shared are used for worker nodes to run stateful applications in a production environment. 
 
 ![Red Hat OpenShift Multi zone cluster](image/ROKScluster.svg)
 
