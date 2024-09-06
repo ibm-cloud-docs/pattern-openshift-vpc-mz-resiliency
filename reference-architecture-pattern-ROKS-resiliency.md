@@ -29,11 +29,11 @@ content-type: reference-architecture
 {: toc-version="1.0"}
 
 The Red Hat OpenShift architecture is deployed on VPC servers across three availability zones within a region. 
-The compatible and recommended nodes that are available for Red Hat OpenShift on {{site.data.keyword.Bluemix_notm}} – Virtual Servers Instances Shared are used for worker nodes to run stateful applications in a production environment. 
+From the IBM cloud catalog select from the compatible and recommended nodes that are available for Red Hat OpenShift on {{site.data.keyword.Bluemix_notm}} Worker pools are classified as flavours of CPU, memory and operating system characteristics. Choose the flavour best suited to your use case. – Virtual Servers Instances Shared are used for worker nodes to run stateful applications in a production environment. 
 
 ![Red Hat OpenShift Multi zone cluster](image/ROKScluster.svg)
 
-High-performance auxiliary storage, 10 IOPS Block, is used to and attached to worker nodes. Portworx Enterprise, an SDS – Software Defined Storage, is setup in the cluster across three zones by using a Converged architecture, compute, and storage in the same node. Built-in internal key-value database (KVDB) is used for Portworx cluster.
+High-performance auxiliary storage, 10 IOPS Block, is used to and attached to worker nodes. Portworx Enterprise, an SDS – Software Defined Storage, is setup in the cluster across three zones by using a Converged architecture, compute, and storage in the same node. Built-in internal key-value database (KVDB) is used for the Portworx cluster.
 
 ![Portworx deployment architecture hyperconverged](image/Cluster.svg)
 
