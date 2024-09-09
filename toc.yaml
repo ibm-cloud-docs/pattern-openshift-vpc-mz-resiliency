@@ -12,8 +12,8 @@ toc:
     content-type: deployment
     href: /docs/pattern-openshift-vpc-mz-resiliency
     path: pattern-openshift-vpc-mz-resiliency
-    description: OpenShift on VPC resiliency pattern
-    label: OpenShift on VPC resiliency pattern
+    description: Red Hat OpenShift on VPC resiliency
+    label: Red Hat OpenShift on VPC resiliency
   entries:
   - navgroup:
       id: overview
