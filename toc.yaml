@@ -1,0 +1,60 @@
+#  Rename this file to `toc.yaml`
+#  Make sure you include all nav file coding requirements
+#  Anything with a fully qualified URL with `http` or `https` will get an external link icon added to the nav entry
+---
+toc:
+  properties:
+    subcollection: pattern-openshift-vpc-mz-resiliency
+    # industry: industry-value
+    use-case: Public cloud
+    # compliance: compliance-value
+    audience: solution
+    content-type: deployment
+    href: /docs/pattern-openshift-vpc-mz-resiliency
+    path: pattern-openshift-vpc-mz-resiliency
+    description: OpenShift on VPC resiliency pattern
+    label: OpenShift on VPC resiliency pattern
+  entries:
+  - navgroup:
+      id: overview
+      topics:
+      - overview.md
+  - navgroup:
+      id: architecture
+      topics:
+      - reference-architecture-pattern-ROKS-resiliency.md
+  - navgroup:
+      id: plan
+      topics:
+      - topicgroup:
+          label: Design considerations
+          topics:
+          - topic: compute-design.md
+            navtitle: Compute
+          - topic: storage-design.md
+            navtitle: Storage
+          - topic: networking-design.md
+            navtitle: Networking
+          - topic: resiliency-design.md
+            navtitle: Resiliency
+          - topic: service-management-design.md
+            navtitle: Service management
+          - other-design.md
+      - topicgroup:
+          label: Architecture decisions
+          topics:
+          - topic: compute-architecture.md
+            navtitle: Compute
+          - topic: storage-architecture.md
+            navtitle: Storage
+          - topic: networking-architecture.md
+            navtitle: Networking
+          - topic: resiliency-architecture.md
+            navtitle: Resiliency
+          - topic: service-management-architecture.md
+            navtitle: Service management
+          - other-architecture.md
+  - navgroup:
+      id: reference
+      topics:
+      - references.md
