@@ -80,7 +80,7 @@ High-performance auxiliary storage, 10 IOPS Block, is used to and attached to wo
 |                       | Cluster autoscaler                                                                                                                    | To adjust compute and storage capacity based on load changes                                                                          |
 |                       | VPC VSI (worker nodes) evenly spread across three zones, Portworx Enterprise (SDS) across multiple zones in a region                  | For stateful containerized apps high availability deployment                                                                          |
 |                       | Portworx Backup (PX-Backup)                                                                                                           | For Backup and restore of stateful applications data                                                                                  |
-{: caption="Table 1. Red Hat OpenShift for VPC components" caption-side="bottom"}
+{: caption="Red Hat OpenShift for VPC components" caption-side="bottom"}
 
 
 ## Design scope
@@ -122,7 +122,7 @@ The following table represents a typical set of requirements for enterprise-read
 |                    | Generate alerts/notifications about issues that might impact the availability of the platform to trigger appropriate responses to minimize downtime.            |
 |                    | Monitor audit logs to track changes and detect potential security problems.                                                                                  |
 |                    | Provide a mechanism to identify and send notifications about issues that are found in audit logs.
-{: caption="Table 2. Red Hat OpenShift for VPC requirements" caption-side="bottom"}
+{: caption="Red Hat OpenShift for VPC requirements" caption-side="bottom"}
 
 ## Components
 {: #components}
@@ -153,4 +153,4 @@ The following table represents a typical set of requirements for enterprise-read
 |                       | VPC VSI (worker nodes) evenly spread across three zones, Portworx Enterprise (SDS) across multiple zones in a region                  | For Stateful Containerized apps high availability deployment                                                                          |
 |                       | Portworx Backup (PX-Backup)                                                                                                           | For Backup and Restore of stateful applications data                                                                                  |
 
-{: caption="Table 3. Pattern components" caption-side="bottom"}
+{: caption="Pattern components" caption-side="bottom"}
