@@ -93,4 +93,4 @@ Portworx backup provides a Kubernetes data protection platform for the persisten
 - Storage Orchestrator Runtime for Kubernetes (STORK) provides Kubernetes consistent backup of applications that are running in a workload cluster across multi-pod in a namespace. STORK is an agent and should be installed on the application cluster before PX-Backup cluster installation. STORK bridges the gap between Portworx backup running on your management cluster, and the workload cluster that needs to be backed up.
 - Portworx Backup uses MongoDB that runs with 3 replicas for high availability as the data store and is installed as part of the Portworx Backup deployment for writing the metadata of backup object data.
 
-![Portworx Backup Architecture](image/Portworx.svg){: caption="Figure 4. Portworx Backup Architecture" caption-side="bottom"}
+![Portworx Backup Architecture](image/Portworx.svg){: caption="Portworx Backup Architecture" caption-side="bottom"}

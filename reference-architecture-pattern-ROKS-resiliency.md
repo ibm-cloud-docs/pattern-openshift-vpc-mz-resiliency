@@ -28,13 +28,13 @@ content-type: reference-architecture
 {: toc-content-type="reference-architecture"}
 {: toc-version="1.0"}
 
-The Red Hat OpenShift architecture is deployed on VPC servers across three availability zones within a region. From the {{site.data.keyword.Bluemix_notm}} catalog, you can select from the compatible and recommended nodes that are available for Red Hat OpenShift on {{site.data.keyword.Bluemix_notm}}. Worker pools are classified as variations of CPU, memory, and operating system characteristics. Choose the variation that's best suited to your use case. Shared Virtual Servers instances are used for worker nodes to run stateful applications in a production environment. 
+The Red Hat OpenShift architecture is deployed on VPC servers across three availability zones within a region. From the {{site.data.keyword.Bluemix_notm}} catalog, you can select from the compatible and recommended nodes that are available for Red Hat OpenShift on {{site.data.keyword.Bluemix_notm}}. Worker pools are classified as variations of CPU, memory, and operating system characteristics. Choose the variation that's best suited to your use case. Shared Virtual Servers instances are used for worker nodes to run stateful applications in a production environment.
 
-![Red Hat OpenShift Multi zone cluster](image/ROKScluster.svg)
+![Red Hat OpenShift Multi zone cluster](image/ROKScluster.svg) {: caption="Solution architecture showing multizone cluster on {{site.data.keyword.openshiftlong_notm}}" caption-side="bottom"}
 
 High-performance auxiliary storage, 10 IOPS Block, is used to and attached to worker nodes. Portworx Enterprise, an SDS – Software Defined Storage, is setup in the cluster across three zones by using a Converged architecture, compute, and storage in the same node. Built-in internal key-value database (KVDB) is used for the Portworx cluster.
 
-![Portworx deployment architecture hyperconverged](image/Cluster.svg)
+![Portworx deployment architecture hyperconverged](image/Cluster.svg) {: caption="Portworx deployment architecture" caption-side="bottom"}
 
 - Portworx SDS should be used for any databases that might be required for the stateful applications.
 - In the Red Hat OpenShift multizone cluster, the worker nodes in the worker pools are distributed across multiple zones within one region. Red Hat OpenShift multizone clusters are designed to evenly schedule pods across worker nodes and zones to help ensure availability and recovery from failure. If worker nodes are not spread evenly across the zones or capacity is insufficient in one of the zones, the Red Hat OpenShift controller might fail to schedule all requested pods.
@@ -50,7 +50,7 @@ High-performance auxiliary storage, 10 IOPS Block, is used to and attached to wo
 ## Architecture diagram
 {: #architecture-diagram}
 
-![Multi-Zone Resiliency for Red Hat OpenShift Solution Architecture](image/Architectureoverview.svg "Architecture Overview")
+![Multi-Zone Resiliency for Red Hat OpenShift Solution Architecture](image/Architectureoverview.svg "Architecture Overview") {: caption="Solution architecture showing resilient multizone cluster on {{site.data.keyword.openshiftlong_notm}}" caption-side="bottom"}
 
 ## Solution components
 {: #solution-components}
@@ -80,7 +80,7 @@ High-performance auxiliary storage, 10 IOPS Block, is used to and attached to wo
 |                       | Cluster autoscaler                                                                                                                    | To adjust compute and storage capacity based on load changes                                                                          |
 |                       | VPC VSI (worker nodes) evenly spread across three zones, Portworx Enterprise (SDS) across multiple zones in a region                  | For stateful containerized apps high availability deployment                                                                          |
 |                       | Portworx Backup (PX-Backup)                                                                                                           | For Backup and restore of stateful applications data                                                                                  |
-{: caption="Table 1. Red Hat OpenShift for VPC components" caption-side="bottom"}
+{: caption="Red Hat OpenShift for VPC components" caption-side="bottom"}
 
 
 ## Design scope
@@ -98,7 +98,7 @@ Following the [Architecture Framework](/docs/architecture-framework?topic=archit
 The Architecture Framework, described in [Introduction to the Architecture Framework](/docs/architecture-framework?topic=architecture-framework-intro), provides a consistent approach to design cloud solutions by addressing requirements across a pre-defined set of aspects and domains, which are technology-agnostic architectural areas that need to be considered for any enterprise solution. It can be used as a guide to make the necessary design and component choices to help ensure that you have considered applicable requirements for each aspect and domain. After you have identified the applicable requirements and domains that are in scope, you can evaluate and select the best fit for purpose components for your enterprise cloud solution.
 
 
-## Requirements 
+## Requirements
 {: #requirements}
 
 The following table represents a typical set of requirements for enterprise-ready Red Hat OpenShift deployed in a public cloud.
@@ -122,7 +122,7 @@ The following table represents a typical set of requirements for enterprise-read
 |                    | Generate alerts/notifications about issues that might impact the availability of the platform to trigger appropriate responses to minimize downtime.            |
 |                    | Monitor audit logs to track changes and detect potential security problems.                                                                                  |
 |                    | Provide a mechanism to identify and send notifications about issues that are found in audit logs.
-{: caption="Table 2. Red Hat OpenShift for VPC requirements" caption-side="bottom"}
+{: caption="Red Hat OpenShift for VPC requirements" caption-side="bottom"}
 
 ## Components
 {: #components}
@@ -151,6 +151,5 @@ The following table represents a typical set of requirements for enterprise-read
 | Resiliency & Capacity | [Cross-Region Cloud Object Storage Buckets](/docs/cloud-object-storage/basics?topic=cloud-object-storage-endpoints#endpoints-geo) | Backup storage (target for PX-Backup)                                                                                                 |
 |                       | Cluster Autoscaler                                                                                                                    | To adjust compute and storage capacity based on load changes                                                                          |
 |                       | VPC VSI (worker nodes) evenly spread across three zones, Portworx Enterprise (SDS) across multiple zones in a region                  | For Stateful Containerized apps high availability deployment                                                                          |
-|                       | Portworx Backup (PX-Backup)                                                                                                           | For Backup and Restore of stateful applications data                                                                                  |
-
-{: caption="Table 3. Pattern components" caption-side="bottom"}
+|                       | Portworx Backup (PX-Backup)                                                                                                           | For Backup and Restore of stateful applications data
+{: caption="Pattern components" caption-side="bottom"}
