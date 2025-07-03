@@ -30,13 +30,11 @@ content-type: reference-architecture
 
 The Red Hat OpenShift architecture is deployed on VPC servers across three availability zones within a region. From the {{site.data.keyword.Bluemix_notm}} catalog, you can select from the compatible and recommended nodes that are available for Red Hat OpenShift on {{site.data.keyword.Bluemix_notm}}. Worker pools are classified as variations of CPU, memory, and operating system characteristics. Choose the variation that's best suited to your use case. Shared Virtual Servers instances are used for worker nodes to run stateful applications in a production environment.
 
-![Red Hat OpenShift Multi zone cluster](image/ROKScluster.svg)
-{: caption="Solution architecture showing multizone cluster on {{site.data.keyword.openshiftlong_notm}}" caption-side="bottom"}
+![Red Hat OpenShift Multi zone cluster](image/ROKScluster.svg) {: caption="Solution architecture showing multizone cluster on {{site.data.keyword.openshiftlong_notm}}" caption-side="bottom"}
 
 High-performance auxiliary storage, 10 IOPS Block, is used to and attached to worker nodes. Portworx Enterprise, an SDS – Software Defined Storage, is setup in the cluster across three zones by using a Converged architecture, compute, and storage in the same node. Built-in internal key-value database (KVDB) is used for the Portworx cluster.
 
-![Portworx deployment architecture hyperconverged](image/Cluster.svg)
-{: caption="Portworx deployment architecture" caption-side="bottom"}
+![Portworx deployment architecture hyperconverged](image/Cluster.svg) {: caption="Portworx deployment architecture" caption-side="bottom"}
 
 - Portworx SDS should be used for any databases that might be required for the stateful applications.
 - In the Red Hat OpenShift multizone cluster, the worker nodes in the worker pools are distributed across multiple zones within one region. Red Hat OpenShift multizone clusters are designed to evenly schedule pods across worker nodes and zones to help ensure availability and recovery from failure. If worker nodes are not spread evenly across the zones or capacity is insufficient in one of the zones, the Red Hat OpenShift controller might fail to schedule all requested pods.
@@ -52,8 +50,7 @@ High-performance auxiliary storage, 10 IOPS Block, is used to and attached to wo
 ## Architecture diagram
 {: #architecture-diagram}
 
-![Multi-Zone Resiliency for Red Hat OpenShift Solution Architecture](image/Architectureoverview.svg "Architecture Overview")
-{: caption="Solution architecture showing resilient multizone cluster on {{site.data.keyword.openshiftlong_notm}}" caption-side="bottom"}
+![Multi-Zone Resiliency for Red Hat OpenShift Solution Architecture](image/Architectureoverview.svg "Architecture Overview") {: caption="Solution architecture showing resilient multizone cluster on {{site.data.keyword.openshiftlong_notm}}" caption-side="bottom"}
 
 ## Solution components
 {: #solution-components}
