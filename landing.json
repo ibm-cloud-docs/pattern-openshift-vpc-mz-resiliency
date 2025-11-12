@@ -1,27 +1,27 @@
 {
   "version": 2,
   "title": "The Red Hat OpenShift on VPC multizone resiliency pattern",
-  "introduction":"This is a landing page for the reference architecture describing the Red Hat OpenShift on VPC multizone resiliency pattern",
+  "introduction": "This is a landing page for the reference architecture describing the Red Hat OpenShift on VPC multizone resiliency pattern",
   "section_topics": {
-  "links": [
-    {
-      "title": "Overview",
-      "href": "/docs/pattern-openshift-vpc-mz-resiliency?topic=pattern-openshift-vpc-mz-resiliency-overview"
-    },
-    {
-      "title": "Reference Architecture",
-      "href": "/docs/pattern-openshift-vpc-mz-resiliency?topic=pattern-openshift-vpc-mz-resiliency-openshift-on-vpc"
-    },
-    {
-      "title": "Planning",
-      "href": "/docs/pattern-openshift-vpc-mz-resiliency?topic=pattern-openshift-vpc-mz-resiliency-compute-design"
-    },
-    {
-      "title": "References",
-      "href": "/docs/pattern-openshift-vpc-mz-resiliency?topic=pattern-openshift-vpc-mz-resiliency-references"
-    }
-  ]
-},
+    "links": [
+      {
+        "title": "Overview",
+        "href": "/docs/pattern-openshift-vpc-mz-resiliency?topic=pattern-openshift-vpc-mz-resiliency-overview"
+      },
+      {
+        "title": "Reference Architecture",
+        "href": "/docs/pattern-openshift-vpc-mz-resiliency?topic=pattern-openshift-vpc-mz-resiliency-openshift-on-vpc"
+      },
+      {
+        "title": "Planning",
+        "href": "/docs/pattern-openshift-vpc-mz-resiliency?topic=pattern-openshift-vpc-mz-resiliency-compute-design"
+      },
+      {
+        "title": "References",
+        "href": "/docs/pattern-openshift-vpc-mz-resiliency?topic=pattern-openshift-vpc-mz-resiliency-references"
+      }
+    ]
+  },
   "section_architectures": [
     {
       "title": "Red Hat OpenShift on VPC multizone resiliency pattern",
@@ -29,4 +29,4 @@
       "deployable": false
     }
   ]
- }
+}
