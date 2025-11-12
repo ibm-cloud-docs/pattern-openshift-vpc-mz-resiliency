@@ -23,6 +23,6 @@ keywords:
 
 - [Portworx enterprise](/docs/openshift?topic=openshift-storage_portworx_plan)
 
-- [Portworx backup](/docs/openshift?topic=openshift-storage_portworx_backup\#px-backup-and-restore)
+- [Portworx backup](/docs/openshift?topic=openshift-storage_portworx_backup)
 
-[{{site.data.keyword.Bluemix_notm}} regions and zones](docs/en/cloud-orchestrator/2.5.0.9?topic=security-regions-availability-zones-quota)
+[{{site.data.keyword.Bluemix_notm}} regions and zones](/docs/en/cloud-orchestrator/2.5.0.9?topic=security-regions-availability-zones-quota)

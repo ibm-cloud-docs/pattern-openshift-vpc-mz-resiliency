@@ -39,7 +39,7 @@ The following are architecture decisions for logging for this design.
 {: caption="Architecture decisions for service management logging" caption-side="bottom"}
 
 ## Architecture decisions for alerting
-{: #arch-alerting }
+{: #arch-alerting}
 
 The following are architecture decisions for alerting for this design.
 
